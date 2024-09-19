@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <Button
+        android:id="@+id/toastButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enseñar Tostada"
@@ -20,5 +21,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="Arrancar a otra actividad"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="La mantequilla no está incluida"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toastButton"/>
         
 </androidx.constraintlayout.widget.ConstraintLayout>
