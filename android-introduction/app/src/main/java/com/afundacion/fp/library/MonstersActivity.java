@@ -36,7 +36,8 @@ public class MonstersActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, myFragment2).commit();
                 }
                 if (item.getItemId() == R.id.item3) {
-                    Toast.makeText(context,"Clicaste Digimon 3",Toast.LENGTH_SHORT).show();
+                    Fragment myFragment3 = new Fragment3();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, myFragment3).commit();
                 }
 
                 return true;
