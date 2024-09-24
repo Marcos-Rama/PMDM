@@ -28,14 +28,17 @@ public class MonstersActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.item1) {
+                    Toast.makeText(context,"Has clicado en Digimon 1",Toast.LENGTH_SHORT).show();
                     Fragment myFragment = new Fragment1();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, myFragment).commit();
                 }
                 if (item.getItemId() == R.id.item2) {
+                    Toast.makeText(context,"Has clicado en Digimon 2",Toast.LENGTH_SHORT).show();
                     Fragment myFragment2 = new Fragment2();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, myFragment2).commit();
                 }
                 if (item.getItemId() == R.id.item3) {
+                    Toast.makeText(context,"Clicaste Digimon 3",Toast.LENGTH_SHORT).show();
                     Fragment myFragment3 = new Fragment3();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, myFragment3).commit();
                 }

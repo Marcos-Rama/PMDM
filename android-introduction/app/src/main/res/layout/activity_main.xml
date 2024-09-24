@@ -10,7 +10,7 @@
         android:id="@+id/toastButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enseñar Tostada"
+        android:text="Enseñar tostada"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -21,7 +21,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Arrancar a otra actividad"/>
+        android:text="Arrancar otra actividad"/>
 
     <TextView
         android:layout_width="wrap_content"
