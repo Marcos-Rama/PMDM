@@ -33,4 +33,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Toast.makeText(this, "Hasta luego, MainActivity", Toast.LENGTH_SHORT).show();
+    }
 }
