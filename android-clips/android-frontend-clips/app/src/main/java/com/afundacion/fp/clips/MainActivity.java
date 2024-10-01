@@ -13,6 +13,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,7 +33,17 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Toast.makeText(context, "Response OK", Toast.LENGTH_SHORT).show();
+                        try {
+                            System.out.println(response.getString("status"));
+                        } catch (JSONException e) {
+                            throw new RuntimeException(e);
+                        }
+
+                        try {
+                            Toast.makeText(context, "Response OK: " + response.getString("status"), Toast.LENGTH_SHORT).show();
+                        } catch (JSONException e) {
+                            throw new RuntimeException(e);
+                        }
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -41,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         );
-        
+
         this.queue.add(request);
 
     }
