@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         JsonObjectRequest request = new JsonObjectRequest(
                 Request.Method.GET,
-                Server.name + "/health",
+                Server.name + "/health2",
                 null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -48,6 +48,17 @@ public class MainActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                if (error.networkResponse == null) {
+                    // Error: No se ha establecido la conexión
+                    Toast.makeText(context,"Could not reach server", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Error: El servidor ha dado una respuesta de error
+
+                    // La siguiente variable contendrá el código HTTP,
+                    // por ejemplo 405, 500,...
+                    int serverCode = error.networkResponse.statusCode;
+                    Toast.makeText(context, "Server status: " + serverCode, Toast.LENGTH_SHORT).show();
+                }
 
             }
         }
