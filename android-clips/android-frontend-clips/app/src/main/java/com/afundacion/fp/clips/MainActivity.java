@@ -1,6 +1,7 @@
 package com.afundacion.fp.clips;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,16 +21,20 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
     private RequestQueue queue;
     private Context context= this;
+    private ConstraintLayout mainLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.queue = Volley.newRequestQueue(context);
+        this.mainLayout = findViewById(R.id.main_layout);
+
+        getClips();
 
         JsonObjectRequest request = new JsonObjectRequest(
                 Request.Method.GET,
-                Server.name + "/health2",
+                Server.name + "/health",
                 null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -38,12 +44,12 @@ public class MainActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             throw new RuntimeException(e);
                         }
-
                         try {
                             Toast.makeText(context, "Response OK: " + response.getString("status"), Toast.LENGTH_SHORT).show();
                         } catch (JSONException e) {
                             throw new RuntimeException(e);
                         }
+
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -63,10 +69,29 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         );
-
         this.queue.add(request);
-
     }
+    private void getClips() {
+        JsonObjectRequest request2 = new JsonObjectRequest(
+                Request.Method.GET,
+                Server.name + "/clips",
+                null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Snackbar.make(mainLayout, "Clips received", Snackbar.LENGTH_LONG).show();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }
+        );
+        this.queue.add(request2);
+    }
+
+
 }
 
 
