@@ -2,6 +2,8 @@ package com.afundacion.fp.clips;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -28,9 +30,13 @@ public class MainActivity extends AppCompatActivity {
     private ConstraintLayout mainLayout;
     private ProgressBar progressBar;
     private ClipsList clips;
+    private RecyclerView recyclerView;
 
     public void setClips(ClipsList clips) {
         this.clips = clips;
+        ClipsAdapter myAdapter = new ClipsAdapter(this.clips);
+        recyclerView.setAdapter(myAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
     public ClipsList getClipsForTest() {
         return clips;
@@ -44,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         this.queue = Volley.newRequestQueue(context);
         this.mainLayout = findViewById(R.id.main_layout);
         this.progressBar = findViewById(R.id.progressionBar);
-
+        this.recyclerView = findViewById(R.id.recyclerView);
         getClips();
 
         JsonObjectRequest request = new JsonObjectRequest(

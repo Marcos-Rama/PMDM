@@ -13,6 +13,9 @@ public class ClipViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         textView = itemView.findViewById(R.id.texto1);
     }
-    
+    public void bindClip(Clip clip) {
+        this.textView.setText(clip.getTitle());
+    }
+
 }
 
