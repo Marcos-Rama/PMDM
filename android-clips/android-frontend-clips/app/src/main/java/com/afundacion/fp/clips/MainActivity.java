@@ -5,6 +5,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private RequestQueue queue;
     private Context context= this;
     private ConstraintLayout mainLayout;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         this.queue = Volley.newRequestQueue(context);
         this.mainLayout = findViewById(R.id.main_layout);
+        this.progressBar = findViewById(R.id.progressionBar);
 
         getClips();
 
@@ -74,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         this.queue.add(request);
     }
     private void getClips() {
+        progressBar.setVisibility(View.VISIBLE);
         JsonArrayRequest request2 = new JsonArrayRequest(
                 Request.Method.GET,
                 Server.name + "/clips",
@@ -81,11 +86,13 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
+                        progressBar.setVisibility(View.INVISIBLE);
                         Snackbar.make(mainLayout, "Clips received", Snackbar.LENGTH_LONG).show();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                progressBar.setVisibility(View.INVISIBLE);
                 if (error.networkResponse == null) {
                     Snackbar.make(mainLayout, "Could not reach server", Snackbar.LENGTH_LONG).show();
                 } else {
