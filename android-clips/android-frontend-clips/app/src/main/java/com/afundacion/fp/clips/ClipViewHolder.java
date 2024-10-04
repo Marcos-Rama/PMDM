@@ -26,7 +26,7 @@ public class ClipViewHolder extends RecyclerView.ViewHolder {
                 Intent intent = new Intent(context, VideoActivity.class);
                 intent.putExtra(VideoActivity.INTENT_CLIP_ID, clipId);
                 intent.putExtra(VideoActivity.INTENT_CLIP_URL, clip.getVideoUrl());
-                
+
                 context.startActivity(intent);
 
             }

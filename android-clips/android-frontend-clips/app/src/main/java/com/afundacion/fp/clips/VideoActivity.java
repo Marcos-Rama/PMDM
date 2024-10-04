@@ -1,14 +1,17 @@
 package com.afundacion.fp.clips;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class VideoActivity extends AppCompatActivity {
     public static final String INTENT_CLIP_ID = "CLIP_ID";
     public static final String INTENT_CLIP_URL = "CLIP_URL";
+    private VideoView videoView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +22,11 @@ public class VideoActivity extends AppCompatActivity {
         int clipId = intent.getIntExtra(VideoActivity.INTENT_CLIP_ID, -1);
         String clipUrl = intent.getStringExtra(VideoActivity.INTENT_CLIP_URL);
         Toast.makeText(this, "clipID: " + clipId, Toast.LENGTH_LONG).show();
+
+        videoView = findViewById(R.id.video_view);
+        videoView.setVideoURI(Uri.parse(clipUrl));
+        videoView.start();
+
     }
 
 }
