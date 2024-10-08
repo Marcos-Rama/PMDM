@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="com.afundacion.fp.library.T001GettingStarted" tests="25" failures="1" errors="0" skipped="0" time="98.227" timestamp="2024-09-29T09:38:48" hostname="localhost">
+  <properties>
+    <property name="device" value="Nexus_S_API_28(AVD) - 9" />
+    <property name="flavor" value="" />
+    <property name="project" value=":app" />
+  </properties>
+  <testcase name="checkHelloWorldWasErased" classname="com.afundacion.fp.library.T001GettingStarted" time="5.646" />
+  <testcase name="checkToastButtonExists" classname="com.afundacion.fp.library.T002ANewButton" time="4.046" />
+  <testcase name="checkButtonIsCorrectlyPositioned" classname="com.afundacion.fp.library.T003BasicConstraints" time="3.213" />
+  <testcase name="checkBottomButtonIsCorrectlyPositioned" classname="com.afundacion.fp.library.T004BottomButton" time="4.083" />
+  <testcase name="checkTextIsCorrectlyPositioned" classname="com.afundacion.fp.library.T005IdsTextViewRelativePositions" time="3.589" />
+  <testcase name="checkInitialToastIsShown" classname="com.afundacion.fp.library.T007OnCreate" time="2.921" />
+  <testcase name="checkToastIsShownOnClick" classname="com.afundacion.fp.library.T008OnClick" time="4.151" />
+  <testcase name="checkToastIsShownOnClick" classname="com.afundacion.fp.library.T009OnClick2" time="5.592">
+    <failure>androidx.test.espresso.NoMatchingViewException: No views in hierarchy found matching: an instance of android.widget.TextView and view.getText() with or without transformation to match: is "Mostrando otra actividad..."
+
+View Hierarchy:
++&gt;LinearLayout{id=-1, visibility=VISIBLE, width=308, height=75, has-focus=false, has-focusable=false, has-window-focus=false, is-clickable=false, is-enabled=true, is-focused=false, is-focusable=false, is-layout-requested=false, is-selected=false, layout-params={(0,36)(wrapxwrap) gr=BOTTOM CENTER ty=TOAST fmt=TRANSLUCENT wanim=0x1030004
+fl=NOT_FOCUSABLE NOT_TOUCHABLE KEEP_SCREEN_ON HARDWARE_ACCELERATED}, tag=null, root-is-layout-requested=false, has-input-connection=false, x=0.0, y=0.0, child-count=1}
+|
++-&gt;MaterialTextView{id=16908299, res-name=message, visibility=VISIBLE, width=236, height=29, has-focus=false, has-focusable=false, has-window-focus=false, is-clickable=false, is-enabled=true, is-focused=false, is-focusable=false, is-layout-requested=false, is-selected=false, layout-params=android.widget.LinearLayout$LayoutParams&#64;4bb6521, tag=null, root-is-layout-requested=false, has-input-connection=false, x=36.0, y=23.0, text=Hasta luego, MainActivity, input-type=0, ime-target=false, has-links=false}
+at dalvik.system.VMStack.getThreadStackTrace(Native Method)
+at java.lang.Thread.getStackTrace(Thread.java:1538)
+at androidx.test.espresso.base.DefaultFailureHandler.getUserFriendlyError(DefaultFailureHandler.java:12)
+at androidx.test.espresso.base.DefaultFailureHandler.handle(DefaultFailureHandler.java:7)
+at androidx.test.espresso.ViewInteraction.waitForAndHandleInteractionResults(ViewInteraction.java:8)
+at androidx.test.espresso.ViewInteraction.check(ViewInteraction.java:12)
+at com.afundacion.fp.library.T009OnClick2.checkToastIsShownOnClick(T009OnClick2.java:41)</failure>
+  </testcase>
+  <testcase name="checkNewActivityIsStarted" classname="com.afundacion.fp.library.T010MonstersActivity" time="3.947" />
+  <testcase name="checkMonstersActivityTitle" classname="com.afundacion.fp.library.T011MonstersActivityWithText" time="4.835" />
+  <testcase name="checkOnStopToastIsThrown" classname="com.afundacion.fp.library.T012OnStop" time="3.497" />
+  <testcase name="checkInitialImageIsPresent" classname="com.afundacion.fp.library.T013ImageView" time="2.831" />
+  <testcase name="checkElementsAreCorrect" classname="com.afundacion.fp.library.T014BottomNavView" time="2.61" />
+  <testcase name="checkToast1IsShown" classname="com.afundacion.fp.library.T015BottomNavViewRespondsToClicks" time="2.751" />
+  <testcase name="checkToast2IsShown" classname="com.afundacion.fp.library.T015BottomNavViewRespondsToClicks" time="3.56" />
+  <testcase name="checkToast3IsShown" classname="com.afundacion.fp.library.T015BottomNavViewRespondsToClicks" time="3.769" />
+  <testcase name="checkFragment1ClassExists" classname="com.afundacion.fp.library.T016FirstFragment" time="3.735" />
+  <testcase name="checkFragment2ClassExists" classname="com.afundacion.fp.library.T017SecondFragment" time="2.88" />
+  <testcase name="checkCorrectImageShownAfterClick" classname="com.afundacion.fp.library.T017SecondFragment" time="3.059" />
+  <testcase name="checkCorrectImageShownAfterClickWithCorrectScaleType" classname="com.afundacion.fp.library.T017SecondFragment" time="3.469" />
+  <testcase name="checkCorrectImageShownAfterClickAndNotOther" classname="com.afundacion.fp.library.T017SecondFragment" time="4.305" />
+  <testcase name="checkCorrectImageShownAfterClick" classname="com.afundacion.fp.library.T018ThirdFragment" time="3.432" />
+  <testcase name="checkFragment3ClassExists" classname="com.afundacion.fp.library.T018ThirdFragment" time="2.392" />
+  <testcase name="checkCorrectImageShownAfterClickWithCorrectScaleType" classname="com.afundacion.fp.library.T018ThirdFragment" time="3.147" />
+  <testcase name="checkCorrectImageShownAfterClickAndNotOther" classname="com.afundacion.fp.library.T018ThirdFragment" time="4.015" />
+</testsuite>
