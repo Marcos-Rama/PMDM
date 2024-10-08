@@ -1,5 +1,8 @@
 package com.afundacion.fp.clips;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -33,6 +36,7 @@ public class VideoActivity extends AppCompatActivity {
     private RequestQueue queue;
     private CharactersList charactersOnScreen;
     public Context context;
+    private boolean isAnimating = false;
 
 
 
@@ -68,6 +72,7 @@ public class VideoActivity extends AppCompatActivity {
         });
     }
     private void sendAppearancesRequest (int clipId,int milliseconds) {
+        if(isAnimating){return;}
         String url =Server.name +"/clips"+"/appearances?clpId=" + clipId + "&milliseconds=" + milliseconds;
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,
@@ -95,6 +100,20 @@ public class VideoActivity extends AppCompatActivity {
         CharactersAdapter myAdapter = new CharactersAdapter(this.charactersOnScreen);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAlpha(1);
+        isAnimating = true;
+        ObjectAnimator fadeOut = ObjectAnimator.ofFloat(recyclerView, "alpha", 1f, 0f);
+        fadeOut.setDuration(500);
+        fadeOut.setStartDelay(3000);
+        fadeOut.start();
+        fadeOut.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation){
+                isAnimating = false;
+            }
+        });
+
     }
+
 
 }
