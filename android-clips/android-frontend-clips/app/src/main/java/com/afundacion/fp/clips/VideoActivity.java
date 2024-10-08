@@ -35,7 +35,7 @@ public class VideoActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RequestQueue queue;
     private CharactersList charactersOnScreen;
-    public Context context;
+    public Context context = this;
     private boolean isAnimating = false;
 
 
@@ -72,8 +72,11 @@ public class VideoActivity extends AppCompatActivity {
         });
     }
     private void sendAppearancesRequest (int clipId,int milliseconds) {
-        if(isAnimating){return;}
-        String url =Server.name +"/clips"+"/appearances?clpId=" + clipId + "&milliseconds=" + milliseconds;
+        if(isAnimating){
+            return;
+        }
+        //"/clips/5/appearances?milliseconds="
+        String url =Server.name +"/clips/"+clipId+"/appearances?"  + "milliseconds=" + milliseconds;
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,
                 url,

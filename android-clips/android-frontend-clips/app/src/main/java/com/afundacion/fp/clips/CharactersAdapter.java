@@ -18,7 +18,7 @@ public class CharactersAdapter extends RecyclerView.Adapter<CharacterViewHolder>
     @Override
     public CharacterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View cellView = inflater.inflate(R.layout.recycler_view_cell, parent, false);
+        View cellView = inflater.inflate(R.layout.character_recycler_cell, parent, false);
         CharacterViewHolder cellViewHolder = new CharacterViewHolder(cellView);
         return cellViewHolder;
     }
@@ -31,7 +31,6 @@ public class CharactersAdapter extends RecyclerView.Adapter<CharacterViewHolder>
 
     @Override
     public int getItemCount() {
-
         return this.charactersList.getCharacters().size();
     }
 }
