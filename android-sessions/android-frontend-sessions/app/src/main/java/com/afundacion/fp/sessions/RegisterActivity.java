@@ -67,6 +67,12 @@ public class RegisterActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        if (error.networkResponse == null) {
+                            Toast.makeText(context, "No se pudo establecer la conexión", Toast.LENGTH_LONG).show();
+                        } else {
+                            int serverCode = error.networkResponse.statusCode;
+                            Toast.makeText(context, "El servidor respondió con " + serverCode, Toast.LENGTH_SHORT).show();
+                        }
 
                     }
                 }
