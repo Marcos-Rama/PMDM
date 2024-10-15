@@ -14,7 +14,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:hint="jane.doe"/>
+        android:hint="jane.doe"
+        android:id="@+id/nameBox"/>
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.6"
+        app:layout_constraintTop_toBottomOf="@+id/nameBox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:inputType="textPassword"
+        android:hint="Contraseña"
+        android:id="@+id/passBox"/>/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
