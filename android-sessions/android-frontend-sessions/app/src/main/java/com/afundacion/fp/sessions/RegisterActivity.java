@@ -62,6 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         Toast.makeText(context, "Registro correcto", Toast.LENGTH_LONG).show();
+                        finish();
                     }
                 },
                 new Response.ErrorListener() {
@@ -73,7 +74,6 @@ public class RegisterActivity extends AppCompatActivity {
                             int serverCode = error.networkResponse.statusCode;
                             Toast.makeText(context, "El servidor respondió con " + serverCode, Toast.LENGTH_SHORT).show();
                         }
-
                     }
                 }
         );
