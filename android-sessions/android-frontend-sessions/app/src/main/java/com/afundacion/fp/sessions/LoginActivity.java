@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
     private void sendLoginRequest() {
-        
+
         JSONObject requestBody = new JSONObject();
         try {
             requestBody.put("username", editTextUser.getText().toString());
@@ -89,6 +89,12 @@ public class LoginActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        if (error.networkResponse == null) {
+                            Toast.makeText(context, "Error de conexión", Toast.LENGTH_LONG).show();
+                        } else {
+                            int serverCode = error.networkResponse.statusCode;
+                            Toast.makeText(context, "El servidor respondió con " + serverCode, Toast.LENGTH_LONG).show();
+                        }
 
                     }
                 }
