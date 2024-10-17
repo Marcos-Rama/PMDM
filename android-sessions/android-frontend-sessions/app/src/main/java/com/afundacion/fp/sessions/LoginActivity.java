@@ -22,6 +22,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import javax.net.ssl.SSLEngineResult;
+
 public class LoginActivity extends AppCompatActivity {
     private Button botonToLogin;
     private Context context = this;
@@ -83,6 +85,8 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         // Si la respuesta está OK, mostramos un Toast
                         Toast.makeText(context, "Token: " + receivedToken, Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(context, StatusActivity.class);
+                        startActivity(intent);
 
                     }
                 },
