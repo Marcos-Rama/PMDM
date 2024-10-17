@@ -2,6 +2,7 @@ package com.afundacion.fp.sessions;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaCodec;
 import android.os.Bundle;
 import android.view.View;
@@ -53,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         botonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 sendLoginRequest();
             }
         });
@@ -87,6 +89,26 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(context, "Token: " + receivedToken, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(context, StatusActivity.class);
                         startActivity(intent);
+                        // Instanciamos un objeto de tipo SharedPreferences
+                        // En el constructor pasamos un String. SIEMPRE será el mismo para nuestra aplicación.
+                        SharedPreferences preferences = context.getSharedPreferences("SESSIONS_APP_PREFS", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putString("VALID_USERNAME", editTextUser.getText().toString() );
+                        // .apply() es preferible y cuando se usa, el sistema almacena
+                        // los datos en segundo plano de forma más lenta
+
+                        // .commit() es bloqueante y los almacena inmediatamente. Debe
+                        // usarse sólo si es crítico que los datos se guarden de forma
+                        // instantánea. ¡En nuestro caso es así!
+                        editor.commit();
+
+                        // Un detalle extra:
+                        // Añadamos 'finish()' para que, tras un Login exitoso, la
+                        // LoginActivity se termine. Así evitamos que al pulsar Atrás
+                        // el usuario regrese a dicha LoginActivity.
+                        // ¡Sería confuso!
+                        finish();
+
 
                     }
                 },
