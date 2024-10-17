@@ -51,6 +51,7 @@ public class StatusActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Toast.makeText(context, "Cambiar a: " + editTextUpdateStatus.getText().toString(), Toast.LENGTH_LONG).show();
+                        updateStatus();
                     }
                 }); // Esto añade un botón al diálogo
 
@@ -100,6 +101,38 @@ public class StatusActivity extends AppCompatActivity {
         View inflatedView = inflater.inflate(R.layout.modify_status_dialog, null);
         editTextUpdateStatus = inflatedView.findViewById(R.id.edit_text_change_status);
         return inflatedView;
+
+    }
+    private void updateStatus() {
+        SharedPreferences preferences = getSharedPreferences("SESSIONS_APP_PREFS", MODE_PRIVATE);
+        String username = preferences.getString("VALID_USERNAME", null);
+
+        JSONObject requestBody = new JSONObject();
+        try {
+            requestBody.put("status", editTextUpdateStatus.getText().toString());
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+        JsonObjectRequestWithAuthentication request = new JsonObjectRequestWithAuthentication(
+                Request.Method.PUT,
+                Server.name + "/users/" + username + "/status",
+                requestBody,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        textViewStatus.setText("Cargando...");
+                        retrieveUserStatus();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(context, "No se ha actualizado", Toast.LENGTH_LONG).show();
+                    }
+                },
+                context
+        );
+        queue.add(request);
 
     }
 
