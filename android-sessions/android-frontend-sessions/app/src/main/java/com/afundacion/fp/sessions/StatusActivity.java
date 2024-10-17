@@ -3,6 +3,7 @@ package com.afundacion.fp.sessions;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,17 +18,19 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class StatusActivity extends AppCompatActivity {
     private Context context = this;
     private RequestQueue queue;
+    private TextView textViewStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_status);
-
+        textViewStatus = findViewById(R.id.cargandoText);
         queue = Volley.newRequestQueue(this);
         retrieveUserStatus();
 
@@ -37,7 +40,7 @@ public class StatusActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("SESSIONS_APP_PREFS", MODE_PRIVATE);
         String username = preferences.getString("VALID_USERNAME", null);
 
-        JsonObjectRequest request = new JsonObjectRequest(
+        JsonObjectRequestWithAuthentication request = new JsonObjectRequestWithAuthentication(
                 Request.Method.GET,
                 Server.name + "/users/" + username + "/status",
                 null,
@@ -45,6 +48,11 @@ public class StatusActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         Toast.makeText(context, "Estado recibido", Toast.LENGTH_LONG).show();
+                        try {
+                            textViewStatus.setText(response.getString("status"));
+                        } catch (JSONException e) {
+                            throw new RuntimeException(e);
+                        }
                     }
 
                 },
@@ -53,9 +61,10 @@ public class StatusActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(context, "Problema con la petición de estado", Toast.LENGTH_LONG).show();
                     }
-                }
+                },
+                context
         );
-        queue.add(request);
+        this.queue.add(request);
 
     }
 
