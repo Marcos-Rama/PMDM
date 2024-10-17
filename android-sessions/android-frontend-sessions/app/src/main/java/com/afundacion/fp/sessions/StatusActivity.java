@@ -1,9 +1,12 @@
 package com.afundacion.fp.sessions;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +32,7 @@ public class StatusActivity extends AppCompatActivity {
     private RequestQueue queue;
     private TextView textViewStatus;
     private FloatingActionButton buttonChangeStatus;
+    private EditText editTextUpdateStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +46,14 @@ public class StatusActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder myBuilder = new AlertDialog.Builder(context);
-                myBuilder.setPositiveButton("Actualizar", null); // Esto añade un botón al diálogo
+                myBuilder.setView(inflateDialogView());
+                myBuilder.setPositiveButton("Actualizar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(context, "Cambiar a: " + editTextUpdateStatus.getText().toString(), Toast.LENGTH_LONG).show();
+                    }
+                }); // Esto añade un botón al diálogo
+
                 AlertDialog myDialog = myBuilder.create(); // Esta línea es como 'new AlertDialog'
                 myDialog.show();
 
@@ -83,5 +94,14 @@ public class StatusActivity extends AppCompatActivity {
         this.queue.add(request);
 
     }
+
+    private View inflateDialogView() {
+        LayoutInflater inflater = getLayoutInflater();
+        View inflatedView = inflater.inflate(R.layout.modify_status_dialog, null);
+        editTextUpdateStatus = inflatedView.findViewById(R.id.edit_text_change_status);
+        return inflatedView;
+
+    }
+
 
 }
