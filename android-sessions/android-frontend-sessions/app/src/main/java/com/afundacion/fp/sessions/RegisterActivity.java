@@ -72,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.makeText(context, "No se pudo establecer la conexión", Toast.LENGTH_LONG).show();
                         } else {
                             int serverCode = error.networkResponse.statusCode;
-                            Toast.makeText(context, "El servidor respondió con " + serverCode, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "El servidor respondió con " + serverCode, Toast.LENGTH_LONG).show();
                         }
                     }
                 }

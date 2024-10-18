@@ -128,6 +128,7 @@ public class StatusActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(context, "No se ha actualizado", Toast.LENGTH_LONG).show();
+
                     }
                 },
                 context

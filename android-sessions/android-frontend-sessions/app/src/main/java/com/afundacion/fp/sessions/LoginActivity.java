@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button botonToLogin;
     private Context context = this;
     private Button botonLogin;
-    private RequestQueue queue;
+    private RequestQueue requestQueue;
     private EditText editTextUser;
     private EditText editTextPassword;
 
@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         botonToLogin =findViewById(R.id.registerButtonOrigin);
         botonLogin =findViewById(R.id.loginButton);
-        queue = Volley.newRequestQueue(this);
+        requestQueue = Volley.newRequestQueue(this);
         editTextUser = findViewById(R.id.nameText);
         editTextPassword = findViewById(R.id.passText);
 
@@ -127,7 +127,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
         );
-        this.queue.add(request);
+        this.requestQueue.add(request);
     }
 
 
