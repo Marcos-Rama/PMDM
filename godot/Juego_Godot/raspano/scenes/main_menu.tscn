@@ -1,4 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://7k5bub8evtv3"]
+[gd_scene load_steps=9 format=3 uid="uid://7k5bub8evtv3"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_xy3el"]
+[ext_resource type="Texture2D" uid="uid://yy73jr1x4h2g" path="res://Assets/Background/Background.png" id="2_rl8gd"]
+[ext_resource type="FontFile" uid="uid://5ce6hg8xyaww" path="res://Assets/Fonts/Stifly.ttf" id="3_swqsj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fgdhx"]
+texture = ExtResource("2_rl8gd")
+modulate_color = Color(0.662452, 0.662452, 0.662452, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6uwyq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cs8cy"]
 bg_color = Color(0, 0, 0, 1)
@@ -10,7 +20,7 @@ shadow_color = Color(0.6, 0, 0, 0.6)
 shadow_size = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2wlf"]
-bg_color = Color(0.541176, 0, 0, 1)
+bg_color = Color(0.301104, 3.02622e-06, 1.69661e-06, 1)
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
@@ -33,6 +43,35 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xy3el")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fgdhx")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -331.5
+offset_top = 15.0
+offset_right = 331.5
+offset_bottom = 161.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("3_swqsj")
+theme_override_font_sizes/font_size = 75
+text = "Game Name"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -42,9 +81,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -258.0
-offset_top = -174.5
+offset_top = -134.5
 offset_right = 258.0
-offset_bottom = 174.5
+offset_bottom = 214.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 36
@@ -54,6 +93,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6uwyq")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cs8cy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_g2wlf")
 theme_override_styles/normal = SubResource("StyleBoxFlat_yvnm1")
@@ -64,6 +104,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6uwyq")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cs8cy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_g2wlf")
 theme_override_styles/normal = SubResource("StyleBoxFlat_yvnm1")
@@ -74,7 +115,12 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6uwyq")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cs8cy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_g2wlf")
 theme_override_styles/normal = SubResource("StyleBoxFlat_yvnm1")
 text = "Salir"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_pressed"]
