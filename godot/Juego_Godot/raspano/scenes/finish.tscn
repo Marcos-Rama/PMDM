@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq5begxo5qd53"]
+
+[ext_resource type="Texture2D" uid="uid://c1pb5ks5mp0n3" path="res://Assets/Chest.PNG" id="1_ntmh2"]
+[ext_resource type="Script" path="res://scenes/finish.gd" id="1_rvefy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wid1d"]
+size = Vector2(44, 39)
+
+[node name="Finish" type="Area2D"]
+script = ExtResource("1_rvefy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0.500003, 2)
+scale = Vector2(0.104034, 0.0862069)
+texture = ExtResource("1_ntmh2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2.5)
+shape = SubResource("RectangleShape2D_wid1d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

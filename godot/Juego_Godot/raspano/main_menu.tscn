@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://7k5bub8evtv3"]
 
-[ext_resource type="Script" path="res://main_menu.gd" id="1_xy3el"]
-[ext_resource type="Texture2D" uid="uid://yy73jr1x4h2g" path="res://Assets/Background/Background.png" id="2_rl8gd"]
-[ext_resource type="FontFile" uid="uid://5ce6hg8xyaww" path="res://Assets/Fonts/Stifly.ttf" id="3_swqsj"]
+[ext_resource type="Script" path="res://main_menu.gd" id="1_aevqw"]
+[ext_resource type="Texture2D" uid="uid://yy73jr1x4h2g" path="res://Assets/Background/Background.png" id="1_s2ff2"]
+[ext_resource type="FontFile" uid="uid://5ce6hg8xyaww" path="res://Assets/Stifly.ttf" id="2_0stg5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fgdhx"]
-texture = ExtResource("2_rl8gd")
+texture = ExtResource("1_s2ff2")
 modulate_color = Color(0.662452, 0.662452, 0.662452, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6uwyq"]
@@ -43,7 +43,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_xy3el")
+script = ExtResource("1_aevqw")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -67,9 +67,9 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_constants/shadow_offset_y = 3
-theme_override_fonts/font = ExtResource("3_swqsj")
+theme_override_fonts/font = ExtResource("2_0stg5")
 theme_override_font_sizes/font_size = 75
-text = "New Game"
+text = "Game Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
