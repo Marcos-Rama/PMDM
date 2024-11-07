@@ -13,7 +13,7 @@ var is_jumping = false
 
 # Define la posición inicial del personaje con un valor por defecto
 var initial_position: Vector2 
-var checkpoint_position
+
 
 func _ready():
 	self.position = Global.spawn_point

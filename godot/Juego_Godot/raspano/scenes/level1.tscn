@@ -1595,13 +1595,16 @@ position = Vector2(579, 43)
 [node name="Snails" type="Node" parent="."]
 
 [node name="Snail" parent="Snails" instance=ExtResource("13_ydim2")]
-position = Vector2(433, 37)
+position = Vector2(433, 38)
 
 [node name="Snail2" parent="Snails" instance=ExtResource("13_ydim2")]
 position = Vector2(-144, -299)
 
 [node name="Snail3" parent="Snails" instance=ExtResource("13_ydim2")]
 position = Vector2(327, -299)
+
+[node name="Snail6" parent="Snails" instance=ExtResource("13_ydim2")]
+position = Vector2(1796, 198)
 
 [node name="Snail4" parent="Snails" instance=ExtResource("13_ydim2")]
 position = Vector2(1320, 37)

@@ -78,6 +78,7 @@ size = Vector2(32, 32)
 script = ExtResource("1_0qqlm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(2.5, 5)
 scale = Vector2(1.10417, 1.3125)
 sprite_frames = SubResource("SpriteFrames_rgs6g")
@@ -88,6 +89,7 @@ position = Vector2(3, 11)
 shape = SubResource("RectangleShape2D_0fmyl")
 
 [node name="Killzone" parent="." instance=ExtResource("2_w1hfb")]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(3, 10)
