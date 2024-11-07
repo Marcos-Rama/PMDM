@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://b6au5k15i675i"]
+
+[ext_resource type="Texture2D" uid="uid://ca7o8v82u0dcn" path="res://Assets/Enemies/Snail/walk-Sheet.png" id="1_81i0e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_861ty"]
+atlas = ExtResource("1_81i0e")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8cxk"]
+atlas = ExtResource("1_81i0e")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjcy8"]
+atlas = ExtResource("1_81i0e")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mglbr"]
+atlas = ExtResource("1_81i0e")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydfkv"]
+atlas = ExtResource("1_81i0e")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cby6"]
+atlas = ExtResource("1_81i0e")
+region = Rect2(240, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvtwp"]
+atlas = ExtResource("1_81i0e")
+region = Rect2(288, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qe8sa"]
+atlas = ExtResource("1_81i0e")
+region = Rect2(336, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rgs6g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_861ty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8cxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjcy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mglbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydfkv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cby6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvtwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qe8sa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kc4w"]
+size = Vector2(29, 30)
+
+[node name="Snail" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.5, 5)
+scale = Vector2(1.10417, 1.3125)
+sprite_frames = SubResource("SpriteFrames_rgs6g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 11)
+shape = SubResource("RectangleShape2D_5kc4w")
