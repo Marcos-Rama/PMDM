@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://b4ygnegbsqfbv"]
 
-[ext_resource type="Script" path="res://scenes/purple_gem.gd" id="1_tdpmj"]
+[ext_resource type="Script" path="res://scenes/script/purple_gem.gd" id="1_tdpmj"]
 [ext_resource type="Texture2D" uid="uid://0yjccvnr26ln" path="res://Assets/Collections/Gems/GEM 4 - PURPLE - Spritesheet.png" id="1_wd627"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m3i2t"]

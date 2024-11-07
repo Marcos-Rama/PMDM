@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=3 uid="uid://ig7uinydt0ke"]
 
-[ext_resource type="Script" path="res://scenes/main_character.gd" id="1_00roc"]
+[ext_resource type="Script" path="res://scenes/script/main_character.gd" id="1_00roc"]
 [ext_resource type="Texture2D" uid="uid://goib0oq03ubr" path="res://Assets/Character/Idle/Idle-Sheet.png" id="2_rc0mv"]
 [ext_resource type="Texture2D" uid="uid://b7wwp35tvkmc3" path="res://Assets/Character/Jump/Jump-All-Sheet.png" id="2_tpfvp"]
 [ext_resource type="Texture2D" uid="uid://bhmjcv8scp264" path="res://Assets/Character/Run/Run-Sheet.png" id="4_d1vky"]
