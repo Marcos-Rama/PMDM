@@ -15,17 +15,14 @@ func less_life():
 	print(lives)
 	lives -= 1
 	print(lives)
-	if lives <= 0:
-		print("Game Over!")
-	lives_label.text = "Vidas: " + str(lives)
+	if lives >= 0:
+		lives_label.text = "Vidas: " + str(lives)
+	else:
+		respawn()
 		
 	
 func respawn():
-	less_life()
-	 # Guardar el estado actual del jugador en el GameManager si se requiere más información.
-	if lives > 0:
 		get_tree().reload_current_scene()
-
 
 	
 	 # Implementa una función como parte del respawn.

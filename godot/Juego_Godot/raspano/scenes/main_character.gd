@@ -12,8 +12,11 @@ var is_jumping = false
 
 
 # Define la posición inicial del personaje con un valor por defecto
-var initial_position: Vector2 = Vector2.ZERO
+var initial_position: Vector2 
+var checkpoint_position
 
+func _ready():
+	self.position = Global.spawn_point
  # Cambia a la posición inicial deseada
 
 func _physics_process(delta: float) -> void:
@@ -58,4 +61,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_water_1_body_entered(body: Node2D) -> void:
 	if "Main_char" in body.name:
-		game_manager.respawn()# Replace with function body.
+		game_manager.less_life()
+		global_position = Global.spawn_point
+		#game_manager.respawn()# Replace with function body.
