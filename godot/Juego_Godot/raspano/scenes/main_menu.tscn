@@ -69,7 +69,7 @@ theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/font = ExtResource("3_swqsj")
 theme_override_font_sizes/font_size = 75
-text = "New Game"
+text = "Raspiner"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -97,7 +97,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_6uwyq")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cs8cy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_g2wlf")
 theme_override_styles/normal = SubResource("StyleBoxFlat_yvnm1")
-text = "Inciar Partida"
+text = "Iniciar Partida"
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
 layout_mode = 2

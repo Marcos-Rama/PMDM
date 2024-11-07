@@ -5,9 +5,11 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const MAX_JUMP_TIME = 0.2  # Tiempo máximo de salto en segundos
 @onready var animation_main_char = $AnimatedSprite2D
+@onready var game_manager = %Gamemanager
 
 var jump_time = 0.0 #Almacenar el tiempo que lleva en el aire
 var is_jumping = false
+
 
 # Define la posición inicial del personaje con un valor por defecto
 var initial_position: Vector2 = Vector2.ZERO
@@ -54,9 +56,6 @@ func _physics_process(delta: float) -> void:
 	var isLeft = velocity.x < 0
 	animation_main_char.flip_h = isLeft
 
-func respawn():
-	get_tree().reload_current_scene()
-	
 func _on_water_1_body_entered(body: Node2D) -> void:
 	if "Main_char" in body.name:
-		body.respawn()# Replace with function body.
+		game_manager.respawn()# Replace with function body.
