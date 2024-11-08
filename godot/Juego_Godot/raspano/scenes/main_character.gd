@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const MAX_JUMP_TIME = 0.2  # Tiempo máximo de salto en segundos
@@ -9,8 +10,10 @@ const MAX_JUMP_TIME = 0.2  # Tiempo máximo de salto en segundos
 var jump_time = 0.0 #Almacenar el tiempo que lleva en el aire
 var is_jumping = false
 
+
 # Define la posición inicial del personaje con un valor por defecto
 var initial_position: Vector2 
+var checkpoint_position
 
 func _ready():
 	self.position = Global.spawn_point
@@ -44,26 +47,20 @@ func _physics_process(delta: float) -> void:
 			
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
 	# Movimiento lateral
 	var direction := Input.get_axis("Left", "Right")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
 
 	move_and_slide()
 	
 	var isLeft = velocity.x < 0
 	animation_main_char.flip_h = isLeft
 
-
 func _on_water_1_body_entered(body: Node2D) -> void:
 	if "Main_char" in body.name:
 		game_manager.less_life()
 		global_position = Global.spawn_point
 		#game_manager.respawn()# Replace with function body.
-		
-func _on_snail_1_body_entered(body: Node2D) -> void:
-		game_manager.less_life()

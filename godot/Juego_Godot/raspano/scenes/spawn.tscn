@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://det7rfeochdub"]
+
+[ext_resource type="Script" path="res://scenes/script/spawn.gd" id="1_x32xi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5li45"]
+size = Vector2(47, 97)
+
+[node name="Spawn" type="Area2D"]
+script = ExtResource("1_x32xi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-13.5, -29.5)
+shape = SubResource("RectangleShape2D_5li45")
+debug_color = Color(0, 0.649032, 0.15984, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://b6au5k15i675i"]
+[gd_scene load_steps=14 format=3 uid="uid://b6au5k15i675i"]
 
 [ext_resource type="Script" path="res://scenes/script/snail.gd" id="1_0qqlm"]
 [ext_resource type="Texture2D" uid="uid://ca7o8v82u0dcn" path="res://Assets/Enemies/Snail/walk-Sheet.png" id="1_81i0e"]
-[ext_resource type="PackedScene" uid="uid://cccyl8v4r71pr" path="res://scenes/killzone.tscn" id="2_w1hfb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_861ty"]
 atlas = ExtResource("1_81i0e")
@@ -71,8 +70,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0fmyl"]
 size = Vector2(30, 30)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_njl30"]
-size = Vector2(32, 32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7x7bp"]
+size = Vector2(34, 31)
 
 [node name="Snail" type="CharacterBody2D"]
 script = ExtResource("1_0qqlm")
@@ -88,12 +87,11 @@ autoplay = "default"
 position = Vector2(3, 11)
 shape = SubResource("RectangleShape2D_0fmyl")
 
-[node name="Killzone" parent="." instance=ExtResource("2_w1hfb")]
-collision_mask = 3
+[node name="Hitbox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(3, 10)
-shape = SubResource("RectangleShape2D_njl30")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(3, 10.5)
+shape = SubResource("RectangleShape2D_7x7bp")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(2, 10)
@@ -102,3 +100,5 @@ target_position = Vector2(28, 19)
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(2, 10)
 target_position = Vector2(-28, 18)
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
