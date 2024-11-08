@@ -3098,9 +3098,6 @@ position = Vector2(259, -488)
 [node name="Purple_gem3" parent="Purple_gem" instance=ExtResource("5_annh5")]
 position = Vector2(737, -540)
 
-[node name="Purple_gem4" parent="Purple_gem" instance=ExtResource("5_annh5")]
-position = Vector2(1728, 209)
-
 [node name="Purple_gem5" parent="Purple_gem" instance=ExtResource("5_annh5")]
 position = Vector2(-521, -193)
 
@@ -3115,6 +3112,9 @@ position = Vector2(1641, -262)
 
 [node name="Purple_gem9" parent="Purple_gem" instance=ExtResource("5_annh5")]
 position = Vector2(2479, -189)
+
+[node name="Purple_gem4" parent="." instance=ExtResource("5_annh5")]
+position = Vector2(1728, 209)
 
 [node name="Purple_gem10" parent="." instance=ExtResource("5_annh5")]
 position = Vector2(579, 43)
