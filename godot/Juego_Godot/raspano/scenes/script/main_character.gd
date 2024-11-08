@@ -21,7 +21,7 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	initial_position = position
 	
-	if Input.is_action_pressed("Dash"):
+	if Input.is_action_just_pressed("Dash"):
 		dash()
 	
 	if Input.is_action_pressed("Attack"):
@@ -71,7 +71,9 @@ func dash():
 	if dash_count < 1:
 		var mouse_position = get_global_mouse_position()
 		var dir = (position - mouse_position).normalized()
-		velocity = dir * SPEED * 3
+		if dir.y < 0:
+			dir.y = 0  # Anula la componente vertical hacia arriba
+		velocity = dir * SPEED * 5
 		dash_count +=1
 	
 
