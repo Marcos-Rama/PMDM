@@ -149,7 +149,7 @@ region = Rect2(560, 0, 80, 80)
 [sub_resource type="SpriteFrames" id="SpriteFrames_06xe2"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 0.3,
 "texture": SubResource("AtlasTexture_d1ctf")
 }, {
 "duration": 1.0,
@@ -175,7 +175,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack_anim",
-"speed": 8.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
