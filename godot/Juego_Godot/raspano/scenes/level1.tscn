@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bnbn5p4ayf80q"]
+[gd_scene load_steps=26 format=3 uid="uid://bnbn5p4ayf80q"]
 
 [ext_resource type="Script" path="res://scenes/script/global.gd" id="1_a4iwd"]
 [ext_resource type="Texture2D" uid="uid://yy73jr1x4h2g" path="res://Assets/Background/Background.png" id="1_tempd"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dq5begxo5qd53" path="res://scenes/finish.tscn" id="9_mgkwb"]
 [ext_resource type="PackedScene" uid="uid://carw16a6cyelu" path="res://scenes/level2.tscn" id="11_mgpij"]
 [ext_resource type="PackedScene" uid="uid://b6au5k15i675i" path="res://scenes/snail.tscn" id="13_ydim2"]
+[ext_resource type="PackedScene" uid="uid://b5k31eu60awne" path="res://scenes/heart.tscn" id="14_tjwvo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tpvrc"]
 texture = ExtResource("2_dbln2")
@@ -3117,6 +3118,12 @@ position = Vector2(2479, -189)
 
 [node name="Purple_gem10" parent="." instance=ExtResource("5_annh5")]
 position = Vector2(579, 43)
+
+[node name="Heart3" parent="." instance=ExtResource("14_tjwvo")]
+position = Vector2(38, -531)
+
+[node name="Heart2" parent="." instance=ExtResource("14_tjwvo")]
+position = Vector2(1083, -581)
 
 [node name="Snails" type="Node" parent="."]
 

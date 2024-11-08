@@ -8,8 +8,8 @@ static var lives = 3
 
 func add_point():
 	points += 1
-	print("Puntos: " + str(points))
-	points_label.text = "Points: " + str(points)
+	print("Gemas: " + str(points))
+	points_label.text = "Gemas: " + str(points)
 	
 func less_life():
 	print(lives)
@@ -19,11 +19,17 @@ func less_life():
 		lives_label.text = "Vidas: " + str(lives)
 	else:
 		lives = 3
-		points_label.text = "Points: " + str (points)
+		points_label.text = "Gemas: " + str (points)
 		lives = 3
 		lives_label.text = "Vidas: " + str (lives)
 		respawn()
 		
+func more_life():
+	print(lives)
+	if lives < 3:
+		lives += 1
+	print("vidas: " + str(lives))
+	lives_label.text = "Vidas: " + str(lives)
 	
 func respawn():
 		get_tree().reload_current_scene()
