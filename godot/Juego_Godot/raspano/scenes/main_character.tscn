@@ -277,7 +277,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ptuj"]
-size = Vector2(88, 27)
+size = Vector2(87, 18)
 
 [node name="Main_char" type="CharacterBody2D"]
 script = ExtResource("1_00roc")
@@ -295,10 +295,13 @@ animation = &"attack_anim"
 autoplay = "idle"
 frame_progress = 0.392406
 
-[node name="Hit" type="Area2D" parent="."]
+[node name="HitMain" type="Area2D" parent="."]
+unique_name_in_owner = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit"]
-position = Vector2(2, 3.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitMain"]
+position = Vector2(1.5, 6)
 shape = SubResource("RectangleShape2D_2ptuj")
+debug_color = Color(0.726862, 0.239797, 1, 0.42)
 
-[connection signal="body_entered" from="Hit" to="." method="_on_hit_body_entered"]
+[connection signal="body_entered" from="HitMain" to="." method="_on_hit_main_body_entered"]
+[connection signal="body_exited" from="HitMain" to="." method="_on_hit_main_body_exited"]

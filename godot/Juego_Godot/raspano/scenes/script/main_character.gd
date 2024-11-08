@@ -5,6 +5,7 @@ const JUMP_VELOCITY = -400.0
 const MAX_JUMP_TIME = 0.2  # Tiempo máximo de salto en segundos
 @onready var animation_main_char = $AnimatedSprite2D
 @onready var game_manager = %Gamemanager
+var bodies_in = false
 
 var jump_time = 0.0 #Almacenar el tiempo que lleva en el aire
 var is_jumping = false
@@ -25,7 +26,9 @@ func _physics_process(delta: float) -> void:
 		dash()
 	
 	if Input.is_action_pressed("Attack"):
+		
 		animation_main_char.animation = "attack_anim"
+		
 	else:
 		if is_on_floor():
 			dash_count = 0
@@ -86,6 +89,15 @@ func _on_water_1_body_entered(body: Node2D) -> void:
 func _on_snail_1_body_entered(body: Node2D) -> void:
 		game_manager.less_life()
 		
-func _on_hit_body_entered(body: Node2D) -> void:
-	if body.name == "snail":
-		print("Caracol golpeado")
+
+func _on_hit_main_body_entered(body: Node2D) -> void:
+	if "Snail" in body.name:
+		bodies_in = true
+		print("Detectado para hit")
+	if Input.is_action_pressed("Attack") and bodies_in:
+				body.die()
+
+func _on_hit_main_body_exited(body: Node2D) -> void:
+	if "Snail" in body.name:
+		bodies_in = false
+		print("No para hit")
