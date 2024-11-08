@@ -8,6 +8,7 @@ const MAX_JUMP_TIME = 0.2  # Tiempo máximo de salto en segundos
 
 var jump_time = 0.0 #Almacenar el tiempo que lleva en el aire
 var is_jumping = false
+var dash_count = 0
 
 # Define la posición inicial del personaje con un valor por defecto
 var initial_position: Vector2 
@@ -27,6 +28,7 @@ func _physics_process(delta: float) -> void:
 		animation_main_char.animation = "attack_anim"
 	else:
 		if is_on_floor():
+			dash_count = 0
 			is_jumping = false  # Reinicia el estado de salto al tocar el suelo
 			jump_time = 0.0  # Reinicia el tiempo de salto
 			if velocity.x > 1 or velocity.x < -1:
@@ -66,9 +68,11 @@ func _physics_process(delta: float) -> void:
 	animation_main_char.flip_h = isLeft
 
 func dash():
-	var mouse_position = get_global_mouse_position()
-	var dir = (position - mouse_position).normalized()
-	velocity = dir * SPEED * 2
+	if dash_count < 1:
+		var mouse_position = get_global_mouse_position()
+		var dir = (position - mouse_position).normalized()
+		velocity = dir * SPEED * 3
+		dash_count +=1
 	
 
 func _on_water_1_body_entered(body: Node2D) -> void:
