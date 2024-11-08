@@ -1696,4 +1696,22 @@ text = "Vidas: 3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Panel3" type="Panel" parent="UI"]
+offset_left = 476.0
+offset_top = 9.0
+offset_right = 710.0
+offset_bottom = 47.0
+
+[node name="Objetivo" type="Label" parent="UI/Panel3"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Necesitas al menos 3 puntos."
+
 [connection signal="body_entered" from="Water1" to="Main_char" method="_on_water_1_body_entered"]

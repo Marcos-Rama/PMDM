@@ -9,9 +9,7 @@ var dir = -1
 @onready var game_manager = %Gamemanager
 
 var motion = Vector2()
-const NAME = "enemy"
-var knockback_dir
-var knockback
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -31,7 +29,6 @@ func _process(delta: float) -> void:
 		
 	position.x += dir * SPEED * delta
 	
-
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == "Main_char":

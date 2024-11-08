@@ -110,6 +110,17 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_g2wlf")
 theme_override_styles/normal = SubResource("StyleBoxFlat_yvnm1")
 text = "Opciones"
 
+[node name="Button4" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6uwyq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cs8cy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g2wlf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_yvnm1")
+text = "Controles"
+
 [node name="Button3" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -123,4 +134,5 @@ text = "Salir"
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button4" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_pressed"]

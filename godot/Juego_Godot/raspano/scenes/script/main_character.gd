@@ -19,19 +19,22 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	initial_position = position
 	
-	if is_on_floor():
-		is_jumping = false  # Reinicia el estado de salto al tocar el suelo
-		jump_time = 0.0  # Reinicia el tiempo de salto
-		if velocity.x > 1 or velocity.x < -1:
-			animation_main_char.animation = "run"
-		else:
-			animation_main_char.animation = "idle"
+	if Input.is_action_pressed("Attack"):
+		animation_main_char.animation = "attack_anim"
 	else:
-		# Cambia la animación según si sube o baja en el aire
-		if velocity.y > 0.0:
-			animation_main_char.animation = "jump_down"
+		if is_on_floor():
+			is_jumping = false  # Reinicia el estado de salto al tocar el suelo
+			jump_time = 0.0  # Reinicia el tiempo de salto
+			if velocity.x > 1 or velocity.x < -1:
+				animation_main_char.animation = "run"
+			else:
+				animation_main_char.animation = "idle"
 		else:
-			animation_main_char.animation = "jump_up"
+			# Cambia la animación según si sube o baja en el aire
+			if velocity.y > 0.0:
+				animation_main_char.animation = "jump_down"
+			else:
+				animation_main_char.animation = "jump_up"
 			
 	#Manejo del salto
 	if Input.is_action_pressed("Jump") and (is_on_floor() or is_jumping):
@@ -67,3 +70,7 @@ func _on_water_1_body_entered(body: Node2D) -> void:
 		
 func _on_snail_1_body_entered(body: Node2D) -> void:
 		game_manager.less_life()
+		
+func _on_hit_body_entered(body: Node2D) -> void:
+	if body.name == "snail":
+		print("Caracol golpeado")
