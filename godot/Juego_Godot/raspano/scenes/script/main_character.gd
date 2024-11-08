@@ -16,8 +16,12 @@ func _ready():
 	self.position = Global.spawn_point
  # Cambia a la posición inicial deseada
 
+
 func _physics_process(delta: float) -> void:
 	initial_position = position
+	
+	if Input.is_action_pressed("Dash"):
+		dash()
 	
 	if Input.is_action_pressed("Attack"):
 		animation_main_char.animation = "attack_anim"
@@ -61,6 +65,11 @@ func _physics_process(delta: float) -> void:
 	var isLeft = velocity.x < 0
 	animation_main_char.flip_h = isLeft
 
+func dash():
+	var mouse_position = get_global_mouse_position()
+	var dir = (position - mouse_position).normalized()
+	velocity = dir * SPEED * 2
+	
 
 func _on_water_1_body_entered(body: Node2D) -> void:
 	if "Main_char" in body.name:
