@@ -13,7 +13,17 @@ var dash_count = 0
 
 # Define la posición inicial del personaje con un valor por defecto
 var initial_position: Vector2 
-
+func _process(delta):
+	# Obtener la posición del ratón relativa a la posición del personaje
+	var mouse_position = get_global_mouse_position()
+	var direction_to_mouse = mouse_position.x - global_position.x
+	if animation_main_char.animation == "idle" or animation_main_char.animation == "attack_anim":
+	# Determinar si el personaje debe voltear en función de la posición del ratón
+		if direction_to_mouse < 0:
+			animation_main_char.flip_h = true  # Volteamos el sprite a la izquierda
+		else:
+			animation_main_char.flip_h = false  # Volteamos el sprite a la derecha
+			
 func _ready():
 	self.position = Global.spawn_point
  # Cambia a la posición inicial deseada
@@ -64,7 +74,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-
 	move_and_slide()
 	
 	var isLeft = velocity.x < 0
