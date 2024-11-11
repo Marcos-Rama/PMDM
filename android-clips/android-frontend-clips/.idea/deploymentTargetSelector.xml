@@ -14,10 +14,10 @@
       <SelectionState runConfigName="T015WhenItsOverItsOver">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="T016Appearances">
+      <SelectionState runConfigName="T017FadeOut">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="T017FadeOut">
+      <SelectionState runConfigName="T012OnClickListenerForCell">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

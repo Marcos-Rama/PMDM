@@ -33,7 +33,7 @@ public class StatusActivity extends AppCompatActivity {
     private TextView textViewStatus;
     private FloatingActionButton buttonChangeStatus;
     private EditText editTextUpdateStatus;
-
+ 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
