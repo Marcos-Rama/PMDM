@@ -277,7 +277,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ptuj"]
-size = Vector2(87, 18)
+size = Vector2(86, 28)
 
 [node name="Main_char" type="CharacterBody2D"]
 script = ExtResource("1_00roc")
@@ -299,7 +299,7 @@ frame_progress = 0.392406
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitMain"]
-position = Vector2(1.5, 6)
+position = Vector2(1, 11)
 shape = SubResource("RectangleShape2D_2ptuj")
 debug_color = Color(0.726862, 0.239797, 1, 0.42)
 

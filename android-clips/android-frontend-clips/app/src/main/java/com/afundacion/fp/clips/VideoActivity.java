@@ -39,7 +39,6 @@ public class VideoActivity extends AppCompatActivity {
     private boolean isAnimating = false;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,12 +70,13 @@ public class VideoActivity extends AppCompatActivity {
             }
         });
     }
-    private void sendAppearancesRequest (int clipId,int milliseconds) {
-        if(isAnimating){
+
+    private void sendAppearancesRequest(int clipId, int milliseconds) {
+        if (isAnimating) {
             return;
         }
         //"/clips/5/appearances?milliseconds="
-        String url =Server.name +"/clips/"+clipId+"/appearances?"  + "milliseconds=" + milliseconds;
+        String url = Server.name + "/clips/" + clipId + "/appearances?" + "milliseconds=" + milliseconds;
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,
                 url,
@@ -111,7 +111,7 @@ public class VideoActivity extends AppCompatActivity {
         fadeOut.start();
         fadeOut.addListener(new AnimatorListenerAdapter() {
             @Override
-            public void onAnimationEnd(Animator animation){
+            public void onAnimationEnd(Animator animation) {
                 isAnimating = false;
             }
         });
