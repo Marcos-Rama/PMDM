@@ -30,8 +30,7 @@ func _process(delta: float) -> void:
 	position.x += dir * SPEED * delta
 func die():
 	queue_free()
-func _on_stomp_snail_body_entered(body: Node2D) -> void:
-	die() # Replace with function body.
+
 	
 	
 func _on_hitbox_body_entered(body: Node2D) -> void:
