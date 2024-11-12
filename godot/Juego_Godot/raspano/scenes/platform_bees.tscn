@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdaijosv8ly4a"]
+
+[ext_resource type="Texture2D" uid="uid://e0wmtndgvjgr" path="res://Assets/Grounds/Hive.png" id="1_q10de"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pengy"]
+size = Vector2(80, 8)
+
+[node name="Platform_bees" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_q10de")
+region_enabled = true
+region_rect = Rect2(0, 13, 80, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pengy")

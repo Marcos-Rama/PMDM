@@ -24,6 +24,11 @@ func _process(delta):
 		else:
 			animation_main_char.flip_h = false  # Volteamos el sprite a la derecha
 			
+	if Input.is_action_pressed("Attack"):  # Si el jugador presiona el ataque
+		for mob in mobs_in_area:  # Iterar sobre todos los mobs en el área
+			mob.die()
+		
+		
 func _ready():
 	self.position = Global.spawn_point
  # Cambia a la posición inicial deseada
@@ -98,15 +103,16 @@ func _on_water_1_body_entered(body: Node2D) -> void:
 func _on_snail_1_body_entered(body: Node2D) -> void:
 		game_manager.less_life()
 		
+var mobs_in_area = []
 
 func _on_hit_main_body_entered(body: Node2D) -> void:
 	if "Snail" in body.name:
-		bodies_in = true
+		mobs_in_area.append(body)
 		print("Detectado para hit")
-	if Input.is_action_pressed("Attack") and bodies_in:
-				body.die()
+	#if Input.is_action_pressed("Attack") and bodies_in:
+	#			body.die()
 
 func _on_hit_main_body_exited(body: Node2D) -> void:
 	if "Snail" in body.name:
-		bodies_in = false
+		mobs_in_area.erase(body)
 		print("No para hit")
