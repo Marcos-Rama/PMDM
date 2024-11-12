@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://carw16a6cyelu"]
+[gd_scene load_steps=27 format=3 uid="uid://carw16a6cyelu"]
 
 [ext_resource type="Texture2D" uid="uid://yy73jr1x4h2g" path="res://Assets/Background/Background.png" id="1_ws726"]
 [ext_resource type="Texture2D" uid="uid://lp40ckjlnhle" path="res://Assets/Grounds/Tiles.png" id="2_ly2tw"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://7k5bub8evtv3" path="res://main_menu.tscn" id="12_mmlj4"]
 [ext_resource type="PackedScene" uid="uid://det7rfeochdub" path="res://scenes/spawn.tscn" id="13_nwo0l"]
 [ext_resource type="PackedScene" uid="uid://cdaijosv8ly4a" path="res://scenes/platform_bees.tscn" id="14_mlyxr"]
+[ext_resource type="PackedScene" uid="uid://b4ygnegbsqfbv" path="res://scenes/purple_gem.tscn" id="15_ycffq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tpvrc"]
 texture = ExtResource("2_ly2tw")
@@ -2081,5 +2082,14 @@ libraries = {
 "": SubResource("AnimationLibrary_l3phj")
 }
 autoplay = "platform_bees_move"
+
+[node name="Purple_gem" parent="Platform_bees" instance=ExtResource("15_ycffq")]
+position = Vector2(660, -49)
+
+[node name="Purple_gem2" parent="Platform_bees" instance=ExtResource("15_ycffq")]
+position = Vector2(744, -47)
+
+[node name="Purple_gem3" parent="Platform_bees" instance=ExtResource("15_ycffq")]
+position = Vector2(813, -50)
 
 [connection signal="body_entered" from="Water1" to="Main_char" method="_on_water_1_body_entered"]
