@@ -1,0 +1,153 @@
+[gd_scene load_steps=20 format=3 uid="uid://cht8bvile11e"]
+
+[ext_resource type="Script" path="res://scenes/script/bee.gd" id="1_0u2f6"]
+[ext_resource type="Texture2D" uid="uid://bhy6sfa53sk0y" path="res://Assets/Enemies/Boar/Run-Sheet.png" id="2_ugvba"]
+[ext_resource type="Texture2D" uid="uid://c3bo5wh6fp1g7" path="res://Assets/Enemies/Boar/Walk-Base-Sheet.png" id="3_aoyyf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs0x4"]
+atlas = ExtResource("2_ugvba")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gycvx"]
+atlas = ExtResource("2_ugvba")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grbfd"]
+atlas = ExtResource("2_ugvba")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcgs3"]
+atlas = ExtResource("2_ugvba")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo56u"]
+atlas = ExtResource("2_ugvba")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7nms"]
+atlas = ExtResource("2_ugvba")
+region = Rect2(240, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvvh2"]
+atlas = ExtResource("3_aoyyf")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35uip"]
+atlas = ExtResource("3_aoyyf")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dghvf"]
+atlas = ExtResource("3_aoyyf")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdmht"]
+atlas = ExtResource("3_aoyyf")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8636"]
+atlas = ExtResource("3_aoyyf")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k28fx"]
+atlas = ExtResource("3_aoyyf")
+region = Rect2(240, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_35t4k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gs0x4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gycvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grbfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcgs3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo56u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7nms")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvvh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35uip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dghvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdmht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8636")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k28fx")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pum1"]
+size = Vector2(41, 25)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hbh7x"]
+radius = 323.303
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ir58q"]
+radius = 29.0172
+
+[node name="Pig_enemy" type="CharacterBody2D"]
+position = Vector2(143, 112)
+collision_layer = 16512
+collision_mask = 16512
+script = ExtResource("1_0u2f6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_35t4k")
+animation = &"attack"
+autoplay = "attack"
+frame_progress = 0.223959
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 524288
+visibility_layer = 524288
+position = Vector2(-0.5, 3.5)
+shape = SubResource("RectangleShape2D_5pum1")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
+[node name="Bee_aggro" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bee_aggro"]
+position = Vector2(354, 131)
+shape = SubResource("CircleShape2D_hbh7x")
+debug_color = Color(0.181743, 0.636497, 0.264282, 0.42)
+
+[node name="Bee_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bee_hitbox"]
+position = Vector2(109, 5)
+shape = SubResource("CircleShape2D_ir58q")
+debug_color = Color(0.971329, 0.141299, 0.242576, 0.42)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Bee_aggro" to="." method="_on_bee_aggro_body_entered"]
+[connection signal="body_exited" from="Bee_aggro" to="." method="_on_bee_aggro_body_exited"]
+[connection signal="body_entered" from="Bee_hitbox" to="." method="_on_bee_hitbox_body_entered"]

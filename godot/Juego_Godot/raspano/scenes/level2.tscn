@@ -2016,19 +2016,19 @@ autoplay = "platform_bees_move"
 
 [node name="Bees" type="Node" parent="."]
 
-[node name="Bee_enemy" parent="Bees" instance=ExtResource("15_ornl3")]
+[node name="Bee_enemy" parent="." instance=ExtResource("15_ornl3")]
 position = Vector2(-218, 93)
 
-[node name="Bee_enemy2" parent="Bees" instance=ExtResource("15_ornl3")]
+[node name="Bee_enemy2" parent="." instance=ExtResource("15_ornl3")]
 position = Vector2(1055, -36)
 
-[node name="Bee_enemy3" parent="Bees" instance=ExtResource("15_ornl3")]
+[node name="Bee_enemy3" parent="." instance=ExtResource("15_ornl3")]
 position = Vector2(435, -306)
 
-[node name="Bee_enemy4" parent="Bees" instance=ExtResource("15_ornl3")]
+[node name="Bee_enemy4" parent="." instance=ExtResource("15_ornl3")]
 position = Vector2(1555, -336)
 
-[node name="Bee_enemy5" parent="Bees" instance=ExtResource("15_ornl3")]
+[node name="Bee_enemy5" parent="." instance=ExtResource("15_ornl3")]
 position = Vector2(2227, -72)
 
 [node name="Purple_gem" parent="." instance=ExtResource("12_kyk0e")]
