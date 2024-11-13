@@ -68,13 +68,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0fmyl"]
-size = Vector2(32, 26)
+size = Vector2(31, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7x7bp"]
-size = Vector2(34, 25)
+size = Vector2(35, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rm6o1"]
-size = Vector2(28, 5)
+size = Vector2(27, 1.5)
 
 [node name="Snail_enemy" type="CharacterBody2D"]
 script = ExtResource("1_0qqlm")
@@ -87,15 +87,16 @@ sprite_frames = SubResource("SpriteFrames_rgs6g")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 13)
+position = Vector2(2.5, 13)
 shape = SubResource("RectangleShape2D_0fmyl")
 
 [node name="Hitbox" type="Area2D" parent="."]
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(3, 13.5)
+position = Vector2(2.5, 13.5)
 shape = SubResource("RectangleShape2D_7x7bp")
+debug_color = Color(0.997466, 0, 0.165329, 0.42)
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(2, 10)
@@ -108,7 +109,7 @@ target_position = Vector2(-28, 18)
 [node name="StompSnail" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StompSnail"]
-position = Vector2(2, -3)
+position = Vector2(2.5, -1.25)
 shape = SubResource("RectangleShape2D_rm6o1")
 debug_color = Color(0, 0.648635, 0.174143, 0.42)
 

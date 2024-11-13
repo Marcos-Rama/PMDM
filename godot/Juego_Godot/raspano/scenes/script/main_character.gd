@@ -5,14 +5,19 @@ const JUMP_VELOCITY = -400.0
 const MAX_JUMP_TIME = 0.2  # Tiempo máximo de salto en segundos
 @onready var animation_main_char = $AnimatedSprite2D
 @onready var game_manager = %Gamemanager
-var bodies_in = false
+@onready var sfx_attack: AudioStreamPlayer = $sfx_attack
+@onready var sfx_dash: AudioStreamPlayer = $sfx_dash
 
+
+
+var bodies_in = false
 var jump_time = 0.0 #Almacenar el tiempo que lleva en el aire
 var is_jumping = false
 var dash_count = 0
 
-# Define la posición inicial del personaje con un valor por defecto
 var initial_position: Vector2 
+
+
 func _process(delta):
 	# Obtener la posición del ratón relativa a la posición del personaje
 	var mouse_position = get_global_mouse_position()
@@ -42,8 +47,8 @@ func _physics_process(delta: float) -> void:
 		dash()
 	
 	if Input.is_action_pressed("Attack"):
-		
 		animation_main_char.animation = "attack_anim"
+		sfx_attack.play()
 		
 	else:
 		if is_on_floor():
@@ -60,6 +65,7 @@ func _physics_process(delta: float) -> void:
 				animation_main_char.animation = "jump_down"
 			else:
 				animation_main_char.animation = "jump_up"
+				
 			
 	#Manejo del salto
 	if Input.is_action_pressed("Jump") and (is_on_floor() or is_jumping):
@@ -92,6 +98,7 @@ func dash():
 		if dir.y < 0:
 			dir.y = 0  # Anula la componente vertical hacia arriba
 		velocity = dir * SPEED * 5
+		sfx_dash.play()
 		dash_count +=1
 	
 
