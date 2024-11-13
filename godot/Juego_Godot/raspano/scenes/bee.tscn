@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8664bkyaaaw7"]
+
+[ext_resource type="Texture2D" uid="uid://dlmplsn8nxu0" path="res://Assets/Enemies/SmallBee/Fly-Sheet.png" id="1_8x013"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ndeu"]
+atlas = ExtResource("1_8x013")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qomhk"]
+atlas = ExtResource("1_8x013")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yw7x"]
+atlas = ExtResource("1_8x013")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2te4"]
+atlas = ExtResource("1_8x013")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_35t4k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ndeu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qomhk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yw7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2te4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 13.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7d2ls"]
+radius = 21.0238
+
+[node name="Bee" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_35t4k")
+autoplay = "default"
+frame_progress = 0.0695996
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, -6)
+shape = SubResource("CircleShape2D_7d2ls")
