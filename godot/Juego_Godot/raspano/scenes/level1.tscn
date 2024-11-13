@@ -1535,7 +1535,8 @@ texture = ExtResource("5_73rfo")
 24:22/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_37aow"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 524289
+physics_layer_0/collision_mask = 524289
 sources/0 = SubResource("TileSetAtlasSource_tpvrc")
 sources/1 = SubResource("TileSetAtlasSource_7xis7")
 sources/2 = SubResource("TileSetAtlasSource_i2emc")
@@ -3128,25 +3129,25 @@ position = Vector2(1083, -581)
 
 [node name="Snails" type="Node" parent="."]
 
-[node name="Snail" parent="Snails" instance=ExtResource("13_ydim2")]
+[node name="Snail_enemy" parent="Snails" instance=ExtResource("13_ydim2")]
 position = Vector2(433, 38)
 
-[node name="Snail2" parent="Snails" instance=ExtResource("13_ydim2")]
+[node name="Snail_enemy2" parent="Snails" instance=ExtResource("13_ydim2")]
 position = Vector2(-144, -299)
 
-[node name="Snail3" parent="Snails" instance=ExtResource("13_ydim2")]
+[node name="Snail_enemy3" parent="Snails" instance=ExtResource("13_ydim2")]
 position = Vector2(327, -299)
 
-[node name="Snail6" parent="Snails" instance=ExtResource("13_ydim2")]
+[node name="Snail_enemy6" parent="Snails" instance=ExtResource("13_ydim2")]
 position = Vector2(1796, 198)
 
-[node name="Snail4" parent="Snails" instance=ExtResource("13_ydim2")]
+[node name="Snail_enemy4" parent="Snails" instance=ExtResource("13_ydim2")]
 position = Vector2(1320, 37)
 
-[node name="Snail5" parent="Snails" instance=ExtResource("13_ydim2")]
+[node name="Snail_enemy5" parent="Snails" instance=ExtResource("13_ydim2")]
 position = Vector2(2471, 21)
 
-[node name="Snail6" parent="." instance=ExtResource("13_ydim2")]
+[node name="Snail_enemy6" parent="." instance=ExtResource("13_ydim2")]
 position = Vector2(2328, 197)
 
 [node name="Tipe_open_chest" type="TileMap" parent="."]

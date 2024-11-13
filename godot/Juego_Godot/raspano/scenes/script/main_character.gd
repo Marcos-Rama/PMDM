@@ -31,6 +31,7 @@ func _process(delta):
 		
 func _ready():
 	self.position = Global.spawn_point
+	Global.playerBody = self
  # Cambia a la posición inicial deseada
 
 
@@ -106,13 +107,13 @@ func _on_snail_1_body_entered(body: Node2D) -> void:
 var mobs_in_area = []
 
 func _on_hit_main_body_entered(body: Node2D) -> void:
-	if "Snail" in body.name:
+	if "enemy" in body.name:
 		mobs_in_area.append(body)
 		print("Detectado para hit")
 	#if Input.is_action_pressed("Attack") and bodies_in:
 	#			body.die()
 
 func _on_hit_main_body_exited(body: Node2D) -> void:
-	if "Snail" in body.name:
+	if "enemy" in body.name:
 		mobs_in_area.erase(body)
 		print("No para hit")

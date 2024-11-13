@@ -277,13 +277,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ptuj"]
-size = Vector2(86, 28)
+size = Vector2(92, 56)
 
 [node name="Main_char" type="CharacterBody2D"]
+collision_layer = 16385
+collision_mask = 16385
 script = ExtResource("1_00roc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visibility_layer = 3
+light_mask = 524289
+visibility_layer = 524291
 shape = SubResource("CapsuleShape2D_ke8x4")
 debug_color = Color(0.685291, 0, 0.0271062, 0.419608)
 
@@ -297,9 +300,11 @@ frame_progress = 0.392406
 
 [node name="HitMain" type="Area2D" parent="."]
 unique_name_in_owner = true
+collision_layer = 129
+collision_mask = 129
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitMain"]
-position = Vector2(1, 11)
+position = Vector2(4, -3)
 shape = SubResource("RectangleShape2D_2ptuj")
 debug_color = Color(0.726862, 0.239797, 1, 0.42)
 
