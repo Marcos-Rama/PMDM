@@ -1,0 +1,103 @@
+[gd_scene load_steps=13 format=3 uid="uid://b73nt6kjsik24"]
+
+[ext_resource type="Texture2D" uid="uid://c3bo5wh6fp1g7" path="res://Assets/Enemies/Boar/Walk-Base-Sheet.png" id="1_8g2t3"]
+[ext_resource type="Script" path="res://scenes/script/pig_enemy.gd" id="1_bvrj1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fjbc"]
+size = Vector2(38, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jucm"]
+atlas = ExtResource("1_8g2t3")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_am1fn"]
+atlas = ExtResource("1_8g2t3")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_maymc"]
+atlas = ExtResource("1_8g2t3")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byqq8"]
+atlas = ExtResource("1_8g2t3")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20liu"]
+atlas = ExtResource("1_8g2t3")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fwcd"]
+atlas = ExtResource("1_8g2t3")
+region = Rect2(240, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1v8pg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jucm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_am1fn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_maymc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byqq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20liu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fwcd")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8sk01"]
+size = Vector2(38, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0y47e"]
+size = Vector2(217, 24)
+
+[node name="Pig_enemy" type="CharacterBody2D"]
+script = ExtResource("1_bvrj1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_8fjbc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_1v8pg")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.508526
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_8sk01")
+debug_color = Color(0.996083, 0, 0.193508, 0.42)
+
+[node name="Aggro" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aggro"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_0y47e")
+debug_color = Color(2.55093e-06, 0.645326, 0.262507, 0.42)
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+target_position = Vector2(22, 16)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+target_position = Vector2(-21, 16)
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="Aggro" to="." method="_on_aggro_body_entered"]
+[connection signal="body_exited" from="Aggro" to="." method="_on_aggro_body_exited"]

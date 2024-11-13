@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b3v01jv2v62w6"]
+[gd_scene load_steps=23 format=3 uid="uid://b3v01jv2v62w6"]
 
 [ext_resource type="Texture2D" uid="uid://yy73jr1x4h2g" path="res://Assets/Background/Background.png" id="1_l1gdm"]
 [ext_resource type="Texture2D" uid="uid://lp40ckjlnhle" path="res://Assets/Grounds/Tiles.png" id="2_61ssl"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scenes/script/water_1.gd" id="9_wpyxk"]
 [ext_resource type="Script" path="res://scenes/script/game_manager.gd" id="13_1yvw2"]
 [ext_resource type="PackedScene" uid="uid://dq5begxo5qd53" path="res://scenes/finish.tscn" id="14_gvh3n"]
+[ext_resource type="PackedScene" uid="uid://b73nt6kjsik24" path="res://scenes/pig_enemy.tscn" id="14_q8rjd"]
 [ext_resource type="PackedScene" uid="uid://7k5bub8evtv3" path="res://main_menu.tscn" id="15_4a055"]
 [ext_resource type="PackedScene" uid="uid://det7rfeochdub" path="res://scenes/spawn.tscn" id="16_p6sp7"]
 
@@ -1911,7 +1912,8 @@ texture = ExtResource("7_re3sq")
 7:14/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_37aow"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_tpvrc")
 sources/1 = SubResource("TileSetAtlasSource_7xis7")
 sources/2 = SubResource("TileSetAtlasSource_i2emc")
@@ -2041,5 +2043,8 @@ text = "Necesitas al menos 3 puntos."
 
 [node name="Spawn" parent="." instance=ExtResource("16_p6sp7")]
 position = Vector2(-548, 219)
+
+[node name="Pig_enemy" parent="." instance=ExtResource("14_q8rjd")]
+position = Vector2(-244, 241)
 
 [connection signal="body_entered" from="Water1" to="Main_char" method="_on_water_1_body_entered"]

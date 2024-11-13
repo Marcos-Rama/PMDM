@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bhmjcv8scp264" path="res://Assets/Character/Run/Run-Sheet.png" id="4_d1vky"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ke8x4"]
-radius = 12.0
-height = 56.0
+radius = 15.0
+height = 52.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d1ctf"]
 atlas = ExtResource("2_8dq5r")
@@ -288,7 +288,7 @@ script = ExtResource("1_00roc")
 light_mask = 524289
 visibility_layer = 524291
 shape = SubResource("CapsuleShape2D_ke8x4")
-debug_color = Color(0.685291, 0, 0.0271062, 0.419608)
+debug_color = Color(0.667279, 0, 0.280906, 0.419608)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 0.5)
