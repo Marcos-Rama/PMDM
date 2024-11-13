@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cytre5582esfe"]
+
+[ext_resource type="AudioStream" uid="uid://b38v1mx045ahd" path="res://Assets/Music/Music/Goblins_Dance_(Battle).wav" id="1_h40cb"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_h40cb")
+autoplay = true

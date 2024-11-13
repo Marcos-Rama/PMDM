@@ -1,5 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://carw16a6cyelu"]
+[gd_scene load_steps=30 format=3 uid="uid://carw16a6cyelu"]
 
+[ext_resource type="Script" path="res://scenes/script/level_2.gd" id="1_kpgsg"]
 [ext_resource type="Texture2D" uid="uid://yy73jr1x4h2g" path="res://Assets/Background/Background.png" id="1_ws726"]
 [ext_resource type="Texture2D" uid="uid://lp40ckjlnhle" path="res://Assets/Grounds/Tiles.png" id="2_ly2tw"]
 [ext_resource type="Texture2D" uid="uid://22ybboe205n" path="res://Assets/Grounds/Tree-Assets.png" id="3_0khda"]
@@ -1959,6 +1960,7 @@ _data = {
 }
 
 [node name="Level2" type="Node2D"]
+script = ExtResource("1_kpgsg")
 
 [node name="Respawn" type="Node2D" parent="."]
 

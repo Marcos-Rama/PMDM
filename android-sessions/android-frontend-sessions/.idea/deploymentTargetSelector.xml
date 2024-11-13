@@ -4,10 +4,10 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2024-10-17T06:25:06.494856600Z">
+        <DropdownSelection timestamp="2024-11-13T19:21:00.727528100Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Developer\.android\avd\Nexus_S_API_28.avd" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Marcos\.android\avd\Nexus_S_API_28.avd" />
             </handle>
           </Target>
         </DropdownSelection>
@@ -24,6 +24,14 @@
       </SelectionState>
       <SelectionState runConfigName="T013DialogBody">
         <option name="selectionMode" value="DROPDOWN" />
+        <DropdownSelection timestamp="2024-11-13T19:20:03.838271900Z">
+          <Target type="DEFAULT_BOOT">
+            <handle>
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Marcos\.android\avd\Nexus_S_API_28.avd" />
+            </handle>
+          </Target>
+        </DropdownSelection>
+        <DialogSelection />
       </SelectionState>
       <SelectionState runConfigName="T014PutRequest">
         <option name="selectionMode" value="DROPDOWN" />
