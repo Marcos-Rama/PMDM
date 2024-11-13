@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b8664bkyaaaw7"]
+[gd_scene load_steps=21 format=3 uid="uid://b8664bkyaaaw7"]
 
 [ext_resource type="Texture2D" uid="uid://dlmplsn8nxu0" path="res://Assets/Enemies/SmallBee/Fly-Sheet.png" id="1_8x013"]
 [ext_resource type="Texture2D" uid="uid://73kkbxqal0yb" path="res://Assets/Enemies/SmallBee/Attack-Sheet.png" id="1_brvq6"]
@@ -113,6 +113,9 @@ radius = 21.0238
 [sub_resource type="CircleShape2D" id="CircleShape2D_hbh7x"]
 radius = 383.106
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ir58q"]
+radius = 29.0172
+
 [node name="Bee_enemy" type="CharacterBody2D"]
 position = Vector2(143, 112)
 collision_layer = 16512
@@ -142,6 +145,14 @@ position = Vector2(2, -4)
 shape = SubResource("CircleShape2D_hbh7x")
 debug_color = Color(0.181743, 0.636497, 0.264282, 0.42)
 
+[node name="Bee_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bee_hitbox"]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_ir58q")
+debug_color = Color(0.971329, 0.141299, 0.242576, 0.42)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Bee_aggro" to="." method="_on_bee_aggro_body_entered"]
 [connection signal="body_exited" from="Bee_aggro" to="." method="_on_bee_aggro_body_exited"]
+[connection signal="body_entered" from="Bee_hitbox" to="." method="_on_bee_hitbox_body_entered"]

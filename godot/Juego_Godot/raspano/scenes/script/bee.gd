@@ -5,6 +5,7 @@ var dir: Vector2
 var player: CharacterBody2D
 
 var is_bat_chase: bool
+@onready var game_manager = %Gamemanager
 
 func _ready():
 	is_bat_chase = false
@@ -54,3 +55,7 @@ func _on_bee_aggro_body_exited(body: Node2D) -> void:
 
 func die():
 	queue_free()
+
+func _on_bee_hitbox_body_entered(body: Node2D) -> void:
+	if body.name == "Main_char":
+		game_manager.less_life()

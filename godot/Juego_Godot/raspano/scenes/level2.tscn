@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://carw16a6cyelu"]
+[gd_scene load_steps=29 format=3 uid="uid://carw16a6cyelu"]
 
 [ext_resource type="Texture2D" uid="uid://yy73jr1x4h2g" path="res://Assets/Background/Background.png" id="1_ws726"]
 [ext_resource type="Texture2D" uid="uid://lp40ckjlnhle" path="res://Assets/Grounds/Tiles.png" id="2_ly2tw"]
@@ -11,10 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://cocmhgev7vux5" path="res://Assets/Grounds/Interior-01.png" id="7_4c7mm"]
 [ext_resource type="Script" path="res://scenes/script/game_manager.gd" id="8_kp2oj"]
 [ext_resource type="PackedScene" uid="uid://dq5begxo5qd53" path="res://scenes/finish.tscn" id="9_qleii"]
+[ext_resource type="PackedScene" uid="uid://b4ygnegbsqfbv" path="res://scenes/purple_gem.tscn" id="12_kyk0e"]
 [ext_resource type="PackedScene" uid="uid://7k5bub8evtv3" path="res://main_menu.tscn" id="12_mmlj4"]
 [ext_resource type="PackedScene" uid="uid://det7rfeochdub" path="res://scenes/spawn.tscn" id="13_nwo0l"]
 [ext_resource type="PackedScene" uid="uid://cdaijosv8ly4a" path="res://scenes/platform_bees.tscn" id="14_mlyxr"]
 [ext_resource type="PackedScene" uid="uid://b8664bkyaaaw7" path="res://scenes/bee.tscn" id="15_ornl3"]
+[ext_resource type="PackedScene" uid="uid://b5k31eu60awne" path="res://scenes/heart.tscn" id="17_ppko3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tpvrc"]
 texture = ExtResource("2_ly2tw")
@@ -2012,8 +2014,37 @@ libraries = {
 }
 autoplay = "platform_bees_move"
 
-[node name="Bee_enemy" parent="." instance=ExtResource("15_ornl3")]
+[node name="Bees" type="Node" parent="."]
+
+[node name="Bee_enemy" parent="Bees" instance=ExtResource("15_ornl3")]
 position = Vector2(-218, 93)
+
+[node name="Bee_enemy2" parent="Bees" instance=ExtResource("15_ornl3")]
+position = Vector2(1055, -36)
+
+[node name="Bee_enemy3" parent="Bees" instance=ExtResource("15_ornl3")]
+position = Vector2(435, -306)
+
+[node name="Bee_enemy4" parent="Bees" instance=ExtResource("15_ornl3")]
+position = Vector2(1555, -336)
+
+[node name="Bee_enemy5" parent="Bees" instance=ExtResource("15_ornl3")]
+position = Vector2(2227, -72)
+
+[node name="Purple_gem" parent="." instance=ExtResource("12_kyk0e")]
+position = Vector2(537, -469)
+
+[node name="Purple_gem2" parent="." instance=ExtResource("12_kyk0e")]
+position = Vector2(1398, -540)
+
+[node name="Purple_gem3" parent="." instance=ExtResource("12_kyk0e")]
+position = Vector2(1882, 10)
+
+[node name="Purple_gem4" parent="." instance=ExtResource("12_kyk0e")]
+position = Vector2(2422, -504)
+
+[node name="Purple_gem5" parent="." instance=ExtResource("12_kyk0e")]
+position = Vector2(2340, 102)
 
 [node name="Tile_decoration" type="TileMap" parent="."]
 texture_filter = 1
@@ -2094,5 +2125,11 @@ collision_mask = 16384
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bee_limit"]
 polygon = PackedVector2Array(-492, 243, -468, 253, -461, 315, 7, 319, 19, 251, 39, 245, 625, 235, 659, 300, 2661, 305, 2681, 215, 2904, 200, 2911, -574, 2690, -610, 481, -610, 390, -407, 405, -236, 72, -8, 10, 25, -547, 11, -576, 247, -504, 252, -602, 308, -578, -95, 500, -720, 2951, -688, 3027, 302, 2189, 442, -554, 385, -502, 250)
+
+[node name="Heart" parent="." instance=ExtResource("17_ppko3")]
+position = Vector2(599, -58)
+
+[node name="Heart2" parent="." instance=ExtResource("17_ppko3")]
+position = Vector2(1863, -538)
 
 [connection signal="body_entered" from="Water1" to="Main_char" method="_on_water_1_body_entered"]
