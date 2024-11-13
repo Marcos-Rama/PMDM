@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const speed = 40
+const speed_aggro = 100
 var dir: Vector2
 var player: CharacterBody2D
 
@@ -18,7 +19,7 @@ func _process(delta):
 func move(delta):
 	if is_bat_chase:
 		player = Global.playerBody
-		velocity = position.direction_to(player.position) * speed
+		velocity = position.direction_to(player.position) * speed_aggro
 		dir.x = abs(velocity.x)/velocity.x
 	elif !is_bat_chase:
 		velocity += dir * speed * delta

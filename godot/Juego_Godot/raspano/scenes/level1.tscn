@@ -3129,23 +3129,26 @@ position = Vector2(1083, -581)
 
 [node name="Snails" type="Node" parent="."]
 
-[node name="Snail_enemy" parent="Snails" instance=ExtResource("13_ydim2")]
-position = Vector2(433, 38)
-
 [node name="Snail_enemy2" parent="Snails" instance=ExtResource("13_ydim2")]
-position = Vector2(-144, -299)
+position = Vector2(-145, -298)
 
-[node name="Snail_enemy3" parent="Snails" instance=ExtResource("13_ydim2")]
-position = Vector2(327, -299)
-
-[node name="Snail_enemy6" parent="Snails" instance=ExtResource("13_ydim2")]
+[node name="Snail_enemy7" parent="Snails" instance=ExtResource("13_ydim2")]
 position = Vector2(1796, 198)
 
-[node name="Snail_enemy4" parent="Snails" instance=ExtResource("13_ydim2")]
-position = Vector2(1320, 37)
+[node name="Snail_enemy3" parent="Snails" instance=ExtResource("13_ydim2")]
+position = Vector2(323, -298)
 
 [node name="Snail_enemy5" parent="Snails" instance=ExtResource("13_ydim2")]
 position = Vector2(2471, 21)
+
+[node name="Snail_enemy2" parent="." instance=ExtResource("13_ydim2")]
+position = Vector2(707, 38)
+
+[node name="Snail_enemy" parent="." instance=ExtResource("13_ydim2")]
+position = Vector2(344, 38)
+
+[node name="Snail_enemy4" parent="." instance=ExtResource("13_ydim2")]
+position = Vector2(1217, 38)
 
 [node name="Snail_enemy6" parent="." instance=ExtResource("13_ydim2")]
 position = Vector2(2328, 197)
@@ -3161,8 +3164,8 @@ unique_name_in_owner = true
 position = Vector2(-550, 224)
 
 [node name="Camera2D" type="Camera2D" parent="Main_char"]
-position = Vector2(550, -224)
-zoom = Vector2(0.7, 0.7)
+position = Vector2(300, -200)
+zoom = Vector2(0.9, 0.9)
 limit_left = -585
 limit_top = -640
 limit_right = 2945
@@ -3262,5 +3265,8 @@ position = Vector2(1815, -303)
 
 [node name="fall_platform4" parent="Falling_platforms" instance=ExtResource("15_utio2")]
 position = Vector2(2072, -306)
+
+[node name="Snail_enemy3" parent="." instance=ExtResource("13_ydim2")]
+position = Vector2(-515, 22)
 
 [connection signal="body_entered" from="Water1" to="Main_char" method="_on_water_1_body_entered"]
