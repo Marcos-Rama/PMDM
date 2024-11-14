@@ -1,33 +1,33 @@
-[gd_scene load_steps=13 format=3 uid="uid://b73nt6kjsik24"]
+[gd_scene load_steps=13 format=3 uid="uid://crn1dvwax6qjw"]
 
-[ext_resource type="Texture2D" uid="uid://c3bo5wh6fp1g7" path="res://Assets/Enemies/Boar/Walk-Base-Sheet.png" id="1_8g2t3"]
-[ext_resource type="Script" path="res://scenes/script/pig_enemy.gd" id="1_bvrj1"]
+[ext_resource type="Script" path="res://scenes/script/pig_big_enemy.gd" id="1_xc0m3"]
+[ext_resource type="Texture2D" uid="uid://c3bo5wh6fp1g7" path="res://Assets/Enemies/Boar/Walk-Base-Sheet.png" id="2_2et6o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fjbc"]
-size = Vector2(38, 25)
+size = Vector2(82, 52)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7jucm"]
-atlas = ExtResource("1_8g2t3")
+atlas = ExtResource("2_2et6o")
 region = Rect2(0, 0, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_am1fn"]
-atlas = ExtResource("1_8g2t3")
+atlas = ExtResource("2_2et6o")
 region = Rect2(48, 0, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_maymc"]
-atlas = ExtResource("1_8g2t3")
+atlas = ExtResource("2_2et6o")
 region = Rect2(96, 0, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_byqq8"]
-atlas = ExtResource("1_8g2t3")
+atlas = ExtResource("2_2et6o")
 region = Rect2(144, 0, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_20liu"]
-atlas = ExtResource("1_8g2t3")
+atlas = ExtResource("2_2et6o")
 region = Rect2(192, 0, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5fwcd"]
-atlas = ExtResource("1_8g2t3")
+atlas = ExtResource("2_2et6o")
 region = Rect2(240, 0, 48, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1v8pg"]
@@ -57,46 +57,55 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8sk01"]
-size = Vector2(38, 24)
+size = Vector2(84, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0y47e"]
-size = Vector2(381, 24)
+size = Vector2(269, 28)
 
-[node name="Pig_enemy" type="CharacterBody2D"]
-script = ExtResource("1_bvrj1")
+[node name="Pig_big_enemy" type="CharacterBody2D"]
+collision_layer = 16385
+collision_mask = 16385
+script = ExtResource("1_xc0m3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2.5)
+position = Vector2(-1, 4)
 shape = SubResource("RectangleShape2D_8fjbc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(-1.90735e-06, 4.76837e-07)
+scale = Vector2(2.01042, 1.79297)
 sprite_frames = SubResource("SpriteFrames_1v8pg")
 animation = &"walk"
 autoplay = "walk"
 frame_progress = 0.508526
 
 [node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 16385
+collision_mask = 16385
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, 2)
+position = Vector2(-1, 3)
 shape = SubResource("RectangleShape2D_8sk01")
 debug_color = Color(0.996083, 0, 0.193508, 0.42)
 
 [node name="Aggro" type="Area2D" parent="."]
+collision_layer = 16385
+collision_mask = 16385
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aggro"]
-position = Vector2(-0.5, 1)
+position = Vector2(4.5, 4)
 shape = SubResource("RectangleShape2D_0y47e")
 debug_color = Color(2.55093e-06, 0.645326, 0.262507, 0.42)
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 unique_name_in_owner = true
-target_position = Vector2(22, 0)
+target_position = Vector2(47, 0)
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 unique_name_in_owner = true
-target_position = Vector2(-23, 0)
+target_position = Vector2(-48, -1)
+collision_mask = 8
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="Aggro" to="." method="_on_aggro_body_entered"]

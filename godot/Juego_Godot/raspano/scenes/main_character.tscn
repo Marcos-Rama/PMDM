@@ -302,8 +302,8 @@ frame_progress = 0.392406
 
 [node name="HitMain" type="Area2D" parent="."]
 unique_name_in_owner = true
-collision_layer = 129
-collision_mask = 129
+collision_layer = 16513
+collision_mask = 16513
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitMain"]
 position = Vector2(4, -3)

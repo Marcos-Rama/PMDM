@@ -23,12 +23,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	if !is_pig_chase:
-		if  ray_cast_right.is_colliding():
+		if not ray_cast_right.is_colliding():
 			if dir != -1:  # Si la dirección cambia, ajusta el flip
 				dir = -1
 				animated_sprite_2d.flip_h = false
-
-		if  ray_cast_left.is_colliding():
+			
+		if not ray_cast_left.is_colliding():
 			if dir != 1:  # Si la dirección cambia, ajusta el flip
 				dir = 1
 				animated_sprite_2d.flip_h = true  # Volteado (derecha)

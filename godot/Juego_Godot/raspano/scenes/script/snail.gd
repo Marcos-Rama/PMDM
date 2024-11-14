@@ -35,7 +35,6 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == "Main_char":
 		game_manager.less_life()
 
-
 func _on_stomp_snail_body_entered(body: Node2D) -> void:
 	if body.name == "Main_char":
 		die()
