@@ -4,9 +4,6 @@ const PATH = "user://settings.cfg"
 var config = ConfigFile.new()
 
 func _ready():
-	for action in InputMap.get_actions():
-		if InputMap.action_get_events(action).size() != 0:
-			config.set_value("Controls",action,InputMap.action_get_events(action)[0])
 	
 	config.set_value("Video", "fullscreen", DisplayServer.WINDOW_MODE_WINDOWED)
 	config.set_value("Video", "borderless", false)

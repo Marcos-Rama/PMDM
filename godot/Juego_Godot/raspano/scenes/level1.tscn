@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bnbn5p4ayf80q"]
+[gd_scene load_steps=29 format=3 uid="uid://bnbn5p4ayf80q"]
 
 [ext_resource type="Script" path="res://scenes/script/global.gd" id="1_a4iwd"]
 [ext_resource type="Script" path="res://scenes/script/level_1.gd" id="1_lehk3"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b6au5k15i675i" path="res://scenes/snail.tscn" id="13_ydim2"]
 [ext_resource type="PackedScene" uid="uid://b5k31eu60awne" path="res://scenes/heart.tscn" id="14_tjwvo"]
 [ext_resource type="PackedScene" uid="uid://emf8dlhhea7n" path="res://scenes/fall_platform.tscn" id="15_utio2"]
+[ext_resource type="AudioStream" uid="uid://bqmn0y178t7n7" path="res://Assets/Music/Music/Goblins_Dance__Battle_.mp3" id="17_am2q0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tpvrc"]
 texture = ExtResource("2_dbln2")
@@ -3074,6 +3075,11 @@ sources/3 = SubResource("TileSetAtlasSource_158fv")
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_lehk3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_am2q0")
+autoplay = true
+bus = &"Music"
 
 [node name="Global" type="Node" parent="."]
 script = ExtResource("1_a4iwd")

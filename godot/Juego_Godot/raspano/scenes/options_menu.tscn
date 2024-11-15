@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dx4tyob71r4gc"]
+[gd_scene load_steps=11 format=3 uid="uid://dx4tyob71r4gc"]
 
 [ext_resource type="Texture2D" uid="uid://yy73jr1x4h2g" path="res://Assets/Background/Background.png" id="1_efea1"]
 [ext_resource type="Script" path="res://scenes/script/video.gd" id="1_fls26"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/script/Audio.gd" id="2_pod36"]
 [ext_resource type="FontFile" uid="uid://5ce6hg8xyaww" path="res://Assets/Stifly.ttf" id="2_sn2nf"]
 [ext_resource type="Script" path="res://scenes/script/back_button.gd" id="3_n7g5k"]
+[ext_resource type="AudioStream" uid="uid://tj8ruiw740nl" path="res://Assets/Music/Music/Goblins_Den__Regular_.mp3" id="9_cm0rd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fv6j4"]
 texture = ExtResource("1_efea1")
@@ -211,6 +212,11 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Back"
 script = ExtResource("3_n7g5k")
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource("9_cm0rd")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="UI/MainMenu/Start" to="UI/MainMenu/Start" method="_on_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Options" to="UI/MainMenu/Options" method="_on_pressed"]
