@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dx4tyob71r4gc"]
+[gd_scene load_steps=15 format=3 uid="uid://dx4tyob71r4gc"]
 
 [ext_resource type="Texture2D" uid="uid://yy73jr1x4h2g" path="res://Assets/Background/Background.png" id="1_efea1"]
 [ext_resource type="Script" path="res://scenes/script/video.gd" id="1_fls26"]
@@ -13,6 +13,32 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fv6j4"]
 texture = ExtResource("1_efea1")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xct3k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwf5k"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0.483434, 1.2514e-06, 2.16588e-07, 0.6)
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pt1a2"]
+bg_color = Color(0.32045, 3.06834e-07, 1.20327e-07, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1y4sb"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
 [node name="OptionsMenu" type="Node2D"]
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -25,26 +51,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_fv6j4")
 
-[node name="Label2" type="Label" parent="UI"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -331.5
-offset_top = 15.0
-offset_right = 331.5
-offset_bottom = 161.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
-theme_override_constants/shadow_offset_y = 3
-theme_override_fonts/font = ExtResource("2_sn2nf")
-theme_override_font_sizes/font_size = 75
-text = "Raspiner"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="MainMenu" type="VBoxContainer" parent="UI"]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -61,30 +70,48 @@ alignment = 1
 
 [node name="Start" type="Button" parent="UI/MainMenu"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xct3k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cwf5k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pt1a2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1y4sb")
 text = "Start Game"
 script = ExtResource("1_y3eoa")
 
 [node name="Options" type="Button" parent="UI/MainMenu"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xct3k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cwf5k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pt1a2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1y4sb")
 text = "Options"
 script = ExtResource("1_xj1xi")
 
 [node name="Exit" type="Button" parent="UI/MainMenu"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xct3k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cwf5k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pt1a2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1y4sb")
 text = "Exit Game"
 script = ExtResource("2_c7n3g")
 
 [node name="Settings" type="TabContainer" parent="UI"]
 unique_name_in_owner = true
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
+current_tab = 1
 
 [node name="video" type="TabBar" parent="UI/Settings"]
+visible = false
 layout_mode = 2
 script = ExtResource("1_fls26")
 metadata/_tab_index = 0
@@ -102,20 +129,33 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 15
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Settings/video/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 15
 
 [node name="FullScreen" type="Label" parent="UI/Settings/video/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_fonts/font = ExtResource("2_sn2nf")
+theme_override_font_sizes/font_size = 40
 text = "FullScreen"
 
 [node name="Borderless" type="Label" parent="UI/Settings/video/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_fonts/font = ExtResource("2_sn2nf")
+theme_override_font_sizes/font_size = 40
 text = "Borderless"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="UI/Settings/video/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 35
 
 [node name="FullScreen" type="CheckBox" parent="UI/Settings/video/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
@@ -140,7 +180,6 @@ text = "Back"
 script = ExtResource("3_n7g5k")
 
 [node name="Audio" type="TabBar" parent="UI/Settings"]
-visible = false
 layout_mode = 2
 script = ExtResource("2_pod36")
 metadata/_tab_index = 1
@@ -158,25 +197,43 @@ offset_right = 29.5
 offset_bottom = 38.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 30
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Settings/Audio/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 15
 
 [node name="Master" type="Label" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_fonts/font = ExtResource("2_sn2nf")
+theme_override_font_sizes/font_size = 30
 text = "Master"
 
 [node name="Music" type="Label" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_fonts/font = ExtResource("2_sn2nf")
+theme_override_font_sizes/font_size = 30
 text = "Music"
 
 [node name="SFX" type="Label" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_fonts/font = ExtResource("2_sn2nf")
+theme_override_font_sizes/font_size = 30
 text = "SFX"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="UI/Settings/Audio/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_constants/separation = 15
 
 [node name="Master" type="HSlider" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
@@ -212,6 +269,24 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Back"
 script = ExtResource("3_n7g5k")
+
+[node name="Label" type="Label" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -184.5
+offset_right = 184.5
+offset_bottom = 127.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_fonts/font = ExtResource("2_sn2nf")
+theme_override_font_sizes/font_size = 70
+text = "Raspiner
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="UI"]
 stream = ExtResource("9_cm0rd")
