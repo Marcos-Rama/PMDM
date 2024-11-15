@@ -11,6 +11,9 @@ func _ready():
 	config.set_value("Video", "fullscreen", DisplayServer.WINDOW_MODE_WINDOWED)
 	config.set_value("Video", "borderless", false)
 	
+	for i in range(3):
+		config.set_value("Audio", str(i), 0.0)
+	
 	load_data()
 
 func save_data():

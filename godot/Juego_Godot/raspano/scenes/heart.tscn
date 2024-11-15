@@ -197,7 +197,6 @@ shape = SubResource("CircleShape2D_dfbma")
 
 [node name="sfk_heal" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_kru0j")
-volume_db = -10.0
 bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
