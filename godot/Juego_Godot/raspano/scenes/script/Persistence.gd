@@ -30,3 +30,20 @@ func load_video_settings():
 	var borderless = config.get_value("Video","borderless")
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, borderless)
  
+func get_audio_volume(type: String) -> float:
+	if type == "master":
+		return config.get_value("Audio", "0", 0.5)
+	elif type == "music":
+		return config.get_value("Audio", "1", 0.5)
+	elif type == "sfx":
+		return config.get_value("Audio", "2", 0.5)
+	return 0.5
+
+func set_audio_volume(type: String, value: float):
+	if type == "master":
+		config.set_value("Audio", "0", value)
+	elif type == "music":
+		config.set_value("Audio", "1", value)
+	elif type == "sfx":
+		config.set_value("Audio", "2", value)
+	save_data()
