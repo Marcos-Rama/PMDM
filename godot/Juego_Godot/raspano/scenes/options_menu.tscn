@@ -1,0 +1,120 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx4tyob71r4gc"]
+
+[ext_resource type="Script" path="res://scenes/script/video.gd" id="1_fls26"]
+[ext_resource type="Script" path="res://scenes/script/sound.gd" id="2_pod36"]
+
+[node name="OptionsMenu" type="Node2D"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Settings" type="TabContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 1
+
+[node name="video" type="TabBar" parent="UI/Settings"]
+visible = false
+layout_mode = 2
+script = ExtResource("1_fls26")
+metadata/_tab_index = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Settings/video"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Settings/video/HBoxContainer"]
+layout_mode = 2
+
+[node name="FullScreen" type="Label" parent="UI/Settings/video/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "FullScreen"
+
+[node name="Borderless" type="Label" parent="UI/Settings/video/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Borderless"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/Settings/video/HBoxContainer"]
+layout_mode = 2
+
+[node name="FullScreen" type="CheckBox" parent="UI/Settings/video/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Borderless" type="CheckBox" parent="UI/Settings/video/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Sound" type="TabBar" parent="UI/Settings"]
+layout_mode = 2
+script = ExtResource("2_pod36")
+metadata/_tab_index = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Settings/Sound"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = -38.5
+offset_right = 29.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Settings/Sound/HBoxContainer"]
+layout_mode = 2
+
+[node name="Master" type="Label" parent="UI/Settings/Sound/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Master"
+
+[node name="Music" type="Label" parent="UI/Settings/Sound/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music"
+
+[node name="SFX" type="Label" parent="UI/Settings/Sound/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "SFX"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/Settings/Sound/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Master" type="HSlider" parent="UI/Settings/Sound/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+max_value = 1.0
+step = 0.05
+
+[node name="Music" type="HSlider" parent="UI/Settings/Sound/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+max_value = 1.0
+step = 0.05
+
+[node name="SFX" type="HSlider" parent="UI/Settings/Sound/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+max_value = 1.0
+step = 0.05
+
+[connection signal="toggled" from="UI/Settings/video/HBoxContainer/VBoxContainer2/FullScreen" to="UI/Settings/video" method="_on_full_screen_toggled"]
+[connection signal="toggled" from="UI/Settings/video/HBoxContainer/VBoxContainer2/Borderless" to="UI/Settings/video" method="_on_borderless_toggled"]
+[connection signal="value_changed" from="UI/Settings/Sound/HBoxContainer/VBoxContainer2/Master" to="UI/Settings/Sound" method="_on_master_value_changed"]
+[connection signal="value_changed" from="UI/Settings/Sound/HBoxContainer/VBoxContainer2/Music" to="UI/Settings/Sound" method="_on_music_value_changed"]
+[connection signal="value_changed" from="UI/Settings/Sound/HBoxContainer/VBoxContainer2/SFX" to="UI/Settings/Sound" method="_on_sfx_value_changed"]
