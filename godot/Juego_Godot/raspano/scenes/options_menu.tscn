@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://dx4tyob71r4gc"]
+[gd_scene load_steps=22 format=3 uid="uid://dx4tyob71r4gc"]
 
 [ext_resource type="Texture2D" uid="uid://yy73jr1x4h2g" path="res://Assets/Background/Background.png" id="1_efea1"]
 [ext_resource type="Script" path="res://scenes/script/video.gd" id="1_fls26"]
+[ext_resource type="Script" path="res://scenes/script/options_menu.gd" id="1_nxm08"]
 [ext_resource type="Script" path="res://scenes/script/options.gd" id="1_xj1xi"]
 [ext_resource type="Script" path="res://scenes/script/start.gd" id="1_y3eoa"]
 [ext_resource type="Script" path="res://scenes/script/exit.gd" id="2_c7n3g"]
@@ -58,6 +59,7 @@ bg_color = Color(0.388235, 0, 0, 1)
 bg_color = Color(0.388235, 0, 0, 1)
 
 [node name="OptionsMenu" type="Node2D"]
+script = ExtResource("1_nxm08")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
