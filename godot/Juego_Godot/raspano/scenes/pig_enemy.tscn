@@ -60,7 +60,7 @@ animations = [{
 size = Vector2(38, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0y47e"]
-size = Vector2(381, 24)
+size = Vector2(381, 22)
 
 [node name="Pig_enemy" type="CharacterBody2D"]
 script = ExtResource("1_bvrj1")
@@ -86,7 +86,7 @@ debug_color = Color(0.996083, 0, 0.193508, 0.42)
 [node name="Aggro" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aggro"]
-position = Vector2(-0.5, 1)
+position = Vector2(-0.5, 2)
 shape = SubResource("RectangleShape2D_0y47e")
 debug_color = Color(2.55093e-06, 0.645326, 0.262507, 0.42)
 
