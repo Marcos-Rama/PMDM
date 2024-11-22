@@ -5,9 +5,11 @@ extends Node
 
 static var points = 0
 static var lives = 3
+static var total_points= 0
 
 func add_point():
 	points += 1
+	total_points += 1
 	print("Gemas: " + str(points))
 	points_label.text = "Gemas: " + str(points)
 	
@@ -19,6 +21,7 @@ func less_life():
 		lives_label.text = "Vidas: " + str(lives)
 	else:
 		lives = 3
+		points = 0
 		points_label.text = "Gemas: " + str (points)
 		lives = 3
 		lives_label.text = "Vidas: " + str (lives)

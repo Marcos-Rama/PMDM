@@ -2094,7 +2094,7 @@ offset_top = 2.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Necesitas al menos 3 puntos."
+text = "Necesitas al menos 3 gemas."
 
 [node name="Spawn" parent="." instance=ExtResource("16_p6sp7")]
 position = Vector2(-506, 236)
