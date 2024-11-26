@@ -6,10 +6,10 @@ extends Area2D
 func _on_body_entered(body: Node2D) -> void:
 	if Global.total_scenes >= 0:
 		if (body.name == "Main_char") and game_manager.points >= 3:
-			Global.total_points += Global.total_level_point
-			Global.total_level_point = 0
+			Global.total_points += game_manager.points
 			get_tree().change_scene_to_packed(target_level)
 			print("total points" +  str(Global.total_points))
+			Global.save()
 			Global.total_scenes += 1
 			if Global.total_scenes == 1:
 				game_manager.points = 0
@@ -18,6 +18,7 @@ func _on_body_entered(body: Node2D) -> void:
 				Global.total_scenes = 0
 				game_manager.points = 0
 				game_manager.lives = 3
+		Global.total_level_point = 0
 
 	#elif Global.total_scenes == 1:
 		#if (body.name == "Main_char") and game_manager.points >= 6:
