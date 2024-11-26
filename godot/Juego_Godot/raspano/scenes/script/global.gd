@@ -47,3 +47,20 @@ func load() -> void:
 	var data:Dictionary = json.data
 	Global.player_name = data.get("name", "UNDEFINED")
 	Global.total_points = data.get("points", 0)
+	
+func send_post_new_score():
+	if Global.player_name == null:
+		printerr("Will NOT send POST data with score due to invalid username")
+		printerr("There might have been an error loading user_data file")
+		return
+	var http_request = HTTPRequest.new()
+	add_child(http_request)
+	http_request.connect("request_completed", _on_server_has_responded)
+	var body = JSON.stringify({"username": Global.player_name, "score": Global.total_points})
+	var headers = ["Content-Type: application/json", "Client-Secret: abc"] # CLIENT_SECRET should never be public! If leaked, ALL clients should be force-updated to use a new one
+	http_request.request("http://127.0.0.1:8000/score", headers, HTTPClient.METHOD_POST, body)
+
+func _on_server_has_responded(result, response_code, headers, body):
+	var response = JSON.parse_string(body.get_string_from_utf8())
+	print("Server response:")
+	print(response)

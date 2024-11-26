@@ -3,6 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.send_post_new_score()
 	Global.total_points = 0
 	Global.player_name = ""
 	

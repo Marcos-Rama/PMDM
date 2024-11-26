@@ -18,7 +18,6 @@ func _on_body_entered(body: Node2D) -> void:
 				Global.total_scenes = 0
 				game_manager.points = 0
 				game_manager.lives = 3
-		Global.total_level_point = 0
 
 	#elif Global.total_scenes == 1:
 		#if (body.name == "Main_char") and game_manager.points >= 6:
