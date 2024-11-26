@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dx4tyob71r4gc"]
+[gd_scene load_steps=23 format=3 uid="uid://dx4tyob71r4gc"]
 
 [ext_resource type="Texture2D" uid="uid://yy73jr1x4h2g" path="res://Assets/Background/Background.png" id="1_efea1"]
 [ext_resource type="Script" path="res://scenes/script/video.gd" id="1_fls26"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scenes/script/Audio.gd" id="2_pod36"]
 [ext_resource type="FontFile" uid="uid://5ce6hg8xyaww" path="res://Assets/Stifly.ttf" id="2_sn2nf"]
 [ext_resource type="Script" path="res://scenes/script/back_button.gd" id="3_n7g5k"]
+[ext_resource type="Script" path="res://scenes/script/controls.gd" id="6_5dxri"]
 [ext_resource type="AudioStream" uid="uid://tj8ruiw740nl" path="res://Assets/Music/Music/Goblins_Den__Regular_.mp3" id="9_cm0rd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fv6j4"]
@@ -113,6 +114,17 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_pt1a2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_1y4sb")
 text = "Options"
 script = ExtResource("1_xj1xi")
+
+[node name="Control" type="Button" parent="UI/MainMenu"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xct3k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cwf5k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pt1a2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1y4sb")
+text = "Controls"
+script = ExtResource("6_5dxri")
 
 [node name="Exit" type="Button" parent="UI/MainMenu"]
 layout_mode = 2
@@ -321,6 +333,7 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="UI/MainMenu/Start" to="UI/MainMenu/Start" method="_on_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Options" to="UI/MainMenu/Options" method="_on_pressed"]
+[connection signal="pressed" from="UI/MainMenu/Control" to="UI/MainMenu/Control" method="_on_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Exit" to="UI/MainMenu/Exit" method="_on_pressed"]
 [connection signal="toggled" from="UI/Settings/video/HBoxContainer/VBoxContainer2/FullScreen" to="UI/Settings/video" method="_on_full_screen_toggled"]
 [connection signal="toggled" from="UI/Settings/video/HBoxContainer/VBoxContainer2/Borderless" to="UI/Settings/video" method="_on_borderless_toggled"]
